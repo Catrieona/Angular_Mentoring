@@ -1,0 +1,68 @@
+@font-face {
+    font-family: Sourcesanspro;
+    src: url(../../../../fonts/sourcesanspro.ttf);
+  }
+
+.course-items {
+    font-family: Sourcesanspro;
+    width: 100%;
+    background-color: rgb(242, 243, 247);
+    padding: 20px 0;
+    .section_wrapper {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 5px;
+        
+        .course-itme-inform {
+            width: 80%;
+            position: relative;
+            padding-left: 10px;
+            padding-bottom: 20px 0;
+            .course-itme-inform-header {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            .course-itme-inform-text {
+                font-weight: 14px;
+                padding: 25px;
+            }
+            .course-itme-timeline-duration, .course-itme-timeline-calendar {
+                display: inline-block;
+                margin: 20px;
+            }
+            .course-itme-timeline {
+                position: absolute;
+                color: rgb(163, 162, 162);
+                right:0;
+                font-size: 13px;
+                top: 0;
+            }
+        }
+        .course-itme-editBlock {
+            position: absolute;
+            display: flex;
+            right: 1%;
+            top: 50px;
+            .course-itme-edit, .course-itme-delete {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin: 0px 7px;
+                background-color: #30b6dd;
+                width: 80px;
+                padding: 7px 5px;
+                color: white;
+                text-align: center;
+                border-radius: 3px;
+                font-size: 13px;
+                cursor: pointer;
+            }
+            .course-itme-edit:hover,.course-itme-delete:hover {
+                background-color: #62d3f5;
+            }
+        }
+    }
+
+}
