@@ -1,0 +1,18 @@
+  @font-face {
+    font-family: Sourcesanspro;
+    src: url(../../../../fonts/sourcesanspro.ttf);
+  }
+.course-nav-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    .page-course-navigation {
+        width: 100%;
+        background-color: white;
+        .page-course-navigation-item {
+            padding: 20px 20px 20px 0px;
+            font-family: Sourcesanspro;
+            font-weight: bold;
+            font-size: 15px;
+        }
+    }
+}

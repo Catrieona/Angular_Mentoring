@@ -1,0 +1,62 @@
+@font-face {
+    font-family: Sourcesanspro;
+    src: url(../../../../fonts/sourcesanspro.ttf);
+  }
+
+.course-page-serchBlock {
+    width: 100%;
+    background-color: rgb(242, 243, 247);
+    .section_wrapper {
+        font-family: Sourcesanspro;
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        .course-page-form {
+            padding: 20px 0;
+            .course-page-search {
+                padding: 15px 20px 15px 35px;
+                color: grey;
+                width: 25%;
+                margin-right: 5px;
+                border: 1px solid grey;
+                border-radius: 3px;
+                background: url(../../../../img//search.svg) no-repeat 10px 13px;
+            }
+            .course-page-search-button {
+                height: 47px;
+                background-color: rgb(155, 200, 55);
+                width: 100px;
+                border: 0;
+                border-radius: 3px;
+                cursor: pointer;
+                font-weight: bold;
+                color: white;
+                font-size: 16px;
+            }
+            .course-page-search-button:hover {
+                background-color: rgb(195, 238, 102);
+            }
+        }
+        .curse-add-button {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+            position: relative;
+            background-color: rgb(48, 182, 221);
+            color: white;
+            text-align: center;
+            width: 130px;
+            padding: 10px 5px;
+            border-radius: 3px;
+            left: 88%;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+            .curse-add-button:hover{
+                background-color: rgb(111, 212, 243);
+            }
+        
+    }
+}
