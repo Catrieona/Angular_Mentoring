@@ -5,11 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './course-page-search.component.html',
   styleUrls: ['./course-page-search.component.scss']
 })
-export class CoursePageSearchComponent implements OnInit {
-
+export class CoursePageSearchComponent {
+  public userInutValue: string;
+  
   constructor() { }
+ 
+  getUserValue(value: string) {
+    this.userInutValue=value;
+    console.log(this.userInutValue)
 
-  ngOnInit() {
   }
+
 
 }

@@ -1,17 +1,17 @@
-<section class="course-items">
+<section *ngFor="let item of courseData" #item.id class="course-items">
     <div class="section_wrapper">
         <div class="course-itme-inform"> 
-            <h2 class="course-itme-inform-header" >Couse header</h2>
-            <p class="course-itme-inform-text"> Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college's classes. They're published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.
+            <h2 class="course-itme-inform-header" >Video Course 1. {{item.title}}</h2>
+            <p class="course-itme-inform-text"> {{item.description}}
              </p>
             <div class="course-itme-timeline"> 
                 <div class="course-itme-timeline-duration">
                     <i class="far fa-clock"></i>
-                    duration
+                    {{item.duration}}
                 </div>
                 <div class="course-itme-timeline-calendar">
                     <i class="far fa-calendar-alt"></i>
-                    calendar
+                    {{item.date}}
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <i class="fas fa-pencil-alt"></i>
                 <div> Edit </div>
             </div>
-            <div class="course-itme-delete">
+            <div (click)="deleteCourseItem(item.id)" class="course-itme-delete">
                 <i class="fas fa-trash"></i>
                 <div>  Delete </div>
             </div>
