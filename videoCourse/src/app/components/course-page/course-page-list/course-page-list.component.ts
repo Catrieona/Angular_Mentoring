@@ -12,8 +12,6 @@ export class CoursePageListComponent implements OnInit {
  public data = new ElementData();
  public courseData: Array<object>;
 
-  constructor() {
-  }
 
 ngOnInit() {
   this. courseData = this.data.dataCourse;
