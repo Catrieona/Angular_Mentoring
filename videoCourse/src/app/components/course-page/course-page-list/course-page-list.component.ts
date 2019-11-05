@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ElementData } from "../dataCourse"
+import { ElementData } from '../dataCourse';
 
 
 @Component({
@@ -7,16 +7,19 @@ import { ElementData } from "../dataCourse"
   templateUrl: './course-page-list.component.html',
   styleUrls: ['./course-page-list.component.scss']
 })
-export class CoursePageListComponent {
+export class CoursePageListComponent implements OnInit {
 
  public data = new ElementData();
- public courseData=this.data.dataCourse;
+ public courseData: Array<object>;
 
   constructor() {
   }
 
-  deleteCourseItem(id:string) {
-    this.data.deleteItem(id)
+ngOnInit() {
+  this. courseData = this.data.dataCourse;
+}
+
+public deleteCourseItem(id: string) {
+    this.data.deleteItem(id);
   }
-  
 }

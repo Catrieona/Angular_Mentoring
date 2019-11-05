@@ -7,14 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursePageSearchComponent {
   public userInutValue: string;
-  
-  constructor() { }
- 
-  getUserValue(value: string) {
-    this.userInutValue=value;
-    console.log(this.userInutValue)
 
+ public getUserValue(value: string) {
+    this.userInutValue = value;
+    console.log(this.userInutValue);
   }
-
-
 }

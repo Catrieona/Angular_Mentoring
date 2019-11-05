@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './course-page-footer.component.html',
   styleUrls: ['./course-page-footer.component.scss']
 })
-export class CoursePageFooterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class CoursePageFooterComponent {
 
 }
