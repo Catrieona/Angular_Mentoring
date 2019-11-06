@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { ElementData } from '../dataCourse';
 
 
@@ -17,7 +17,7 @@ ngOnInit() {
   this. courseData = this.data.dataCourse;
 }
 
-public deleteCourseItem(id: string) {
+public ondeleteCourseItem(id: any) {
     this.data.deleteItem(id);
   }
 }
