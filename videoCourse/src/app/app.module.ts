@@ -8,6 +8,7 @@ import { CoursePageHeaderComponent } from './components/course-page/course-page-
 import { CoursePageBreadcrumbsComponent } from './components/course-page/course-page-breadcrumbs/course-page-breadcrumbs.component';
 import { CoursePageSearchComponent } from './components/course-page/course-page-search/course-page-search.component';
 import { CoursePageListComponent } from './components/course-page/course-page-list/course-page-list.component';
+import { CourseListItemComponent } from './components/course-page/course-page-list/course-list-item/course-list-item.component';
 import { CoursePageFooterComponent } from './components/course-page/course-page-footer/course-page-footer.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CoursePageFooterComponent } from './components/course-page/course-page-
     CoursePageBreadcrumbsComponent,
     CoursePageSearchComponent,
     CoursePageListComponent,
+    CourseListItemComponent,
     CoursePageFooterComponent
   ],
   imports: [
@@ -25,6 +27,7 @@ import { CoursePageFooterComponent } from './components/course-page/course-page-
     AppRoutingModule
   ],
   providers: [],
+  exports: [CourseListItemComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

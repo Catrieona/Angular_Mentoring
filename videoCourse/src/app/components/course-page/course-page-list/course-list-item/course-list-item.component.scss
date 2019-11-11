@@ -1,7 +1,7 @@
 @font-face {
     font-family: Sourcesanspro;
-    src: url(../../../../fonts/sourcesanspro.ttf);
-  }
+    src: url(../../../../../fonts//sourcesanspro.ttf);
+}
 
 * {
     padding: 0;
@@ -64,7 +64,6 @@
                 border-radius: 3px;
                 font-size: 13px;
                 cursor: pointer;
-
             }
             .course-itme-edit:hover,.course-itme-delete:hover {
                 background-color: #62d3f5;
