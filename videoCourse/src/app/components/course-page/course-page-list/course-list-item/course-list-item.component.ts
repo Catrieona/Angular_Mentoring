@@ -6,7 +6,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
   styleUrls: ['./course-list-item.component.scss']
 })
 export class CourseListItemComponent {
-  @Input() courseData: Array<Object>;
+  @Input() courseData: Array<{id: number, title: string, description: string, duration:string, date:string}>;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
 
   public deleteCourseItem(id:number) {

@@ -32,7 +32,7 @@ describe('CoursePageListComponent', () => {
   it("should log course id", () => {
     let id=5;
     const consoleSpy = spyOn(console, 'log')
-    component.ondeleteCourseItem(id);
+    component.onDeleteCourseItem(id);
     expect(consoleSpy).toHaveBeenCalled()
   })
 
