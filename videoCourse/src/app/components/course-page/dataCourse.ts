@@ -40,7 +40,7 @@ export class ElementData {
         },
     ]
 
-    deleteItem(id) {
+   public deleteItem(id:number) {
         console.log(id);
     }
 }

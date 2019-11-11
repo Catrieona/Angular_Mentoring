@@ -7,9 +7,9 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 })
 export class CourseListItemComponent {
   @Input() courseData: Array<Object>;
-  @Output() ondeleteCourseItem = new EventEmitter<string>();
+  @Output() onDeleteCourseItem = new EventEmitter<number>();
 
-  public deleteCourseItem(id:any) {
-    this.ondeleteCourseItem.emit(id);
+  public deleteCourseItem(id:number) {
+    this.onDeleteCourseItem.emit(id);
   }
 }

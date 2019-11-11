@@ -10,14 +10,14 @@ import { ElementData } from '../dataCourse';
 export class CoursePageListComponent implements OnInit {
 
  public data = new ElementData();
- public courseData: Array<object>;
+ public courseData: Array<{id: number, title: string, description: string}>;
 
 
 ngOnInit() {
   this. courseData = this.data.dataCourse;
 }
 
-public ondeleteCourseItem(id: any) {
+public onDeleteCourseItem (id: number) {
     this.data.deleteItem(id);
   }
 }
