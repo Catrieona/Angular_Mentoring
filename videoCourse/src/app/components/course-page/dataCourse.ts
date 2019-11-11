@@ -40,10 +40,6 @@ export class ElementData {
         },
     ]
 
-    getData() {
-
-    }
-
     deleteItem(id) {
         console.log(id);
     }
