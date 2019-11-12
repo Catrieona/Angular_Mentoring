@@ -10,7 +10,7 @@ import { ElementData } from '../dataCourse';
 export class CoursePageListComponent implements OnInit {
 
  public data = new ElementData();
- public courseData: Array<{id: number, title: string, description: string, duration: string, date: object, topRated: boolean}>;
+ public courseData: Array<{id: number, title: string, description: string, duration: number, date: object, topRated: boolean}>;
 
 
 ngOnInit() {

@@ -6,8 +6,7 @@ import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 export class ItemBorderStyleDirective implements OnInit {
   @Input() creationDate;
   public currentDate =  new Date('2019-11-12');
-  public courseState: string;
-
+  
   constructor(
     private renderer: Renderer2,
     private el: ElementRef
@@ -25,10 +24,8 @@ if (
         this.renderer.setStyle(
           this.el.nativeElement,
           'border',
-          '2px solid #0c8a1f'
+          '3px solid #0c8a1f'
         );
-        this.courseState = 'newCourse';
-        console.log(this.courseState)
 
       } else if (
         this.creationDate.valueOf() > this.currentDate.valueOf()
@@ -36,10 +33,8 @@ if (
         this.renderer.setStyle(
           this.el.nativeElement,
           'border',
-          '2px solid #006bb8'
+          '3px solid #006bb8'
         );
-        this.courseState = 'upcomingCourse';
-        console.log(this.courseState)
       }
     }
 }
