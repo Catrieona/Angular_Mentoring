@@ -30,10 +30,10 @@ describe('CoursePageListComponent', () => {
   });
 
   it("should log course id", () => {
-    let id=5;
-    const consoleSpy = spyOn(console, 'log')
+    let id = 5;
+    const consoleSpy = spyOn(console, 'log');
     component.onDeleteCourseItem(id);
-    expect(consoleSpy).toHaveBeenCalled()
+    expect(consoleSpy).toHaveBeenCalled();
   })
 
 });

@@ -10,6 +10,7 @@ import { CoursePageSearchComponent } from './components/course-page/course-page-
 import { CoursePageListComponent } from './components/course-page/course-page-list/course-page-list.component';
 import { CourseListItemComponent } from './components/course-page/course-page-list/course-list-item/course-list-item.component';
 import { CoursePageFooterComponent } from './components/course-page/course-page-footer/course-page-footer.component';
+import { ItemBorderStyleDirective } from './components/course-page/course-page-list/course-list-item/item-border-style.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CoursePageFooterComponent } from './components/course-page/course-page-
     CoursePageSearchComponent,
     CoursePageListComponent,
     CourseListItemComponent,
-    CoursePageFooterComponent
+    CoursePageFooterComponent,
+    ItemBorderStyleDirective
   ],
   imports: [
     BrowserModule,

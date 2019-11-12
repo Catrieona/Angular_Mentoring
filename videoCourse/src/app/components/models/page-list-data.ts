@@ -3,5 +3,7 @@ export interface PageListData {
     title: string;
     description: string;
     duration: string;
-    date: string;
+    date: Date;
+    topRated: boolean;
+
 }

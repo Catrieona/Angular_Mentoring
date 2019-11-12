@@ -1,45 +1,46 @@
-import { Directive, ElementRef, Renderer2, Input, AfterViewInit, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appItemBorderStyle]'
 })
-export class ItemBorderStyleDirective {
-  @Input() creationDate
-  public curentDate =  new Date('2019-11-12')
+export class ItemBorderStyleDirective implements OnInit {
+  @Input() creationDate;
+  public currentDate =  new Date('2019-11-12');
+  public courseState: string;
 
   constructor(
     private renderer: Renderer2,
     private el: ElementRef
-    ) { 
-      
+    ) {
   }
 
   ngOnInit() {
-    this.curentDate.getDate()
-    if (this.curentDate.valueOf()/1000/60/60/24 < this.creationDate.valueOf()/1000/60/60/24 && this.curentDate.valueOf()/1000/60/60/24 >= this.curentDate.valueOf()/1000/60/60/24 - 14) {
-      this.renderer.setStyle(
-        this.el.nativeElement,
-        'border',
-        '2px dashed olive'
-      );
-    }else if (this.curentDate.valueOf()/1000/60/60/24 > this.creationDate.valueOf()/1000/60/60/24) {
+
+this.currentDate.getDate();
+
+if (
+        (this.creationDate.valueOf() < this.currentDate.valueOf()) && 
+        (this.creationDate.valueOf() >= (this.currentDate.valueOf() - 1209600000))
+      ) {
         this.renderer.setStyle(
           this.el.nativeElement,
           'border',
-          '2px dashed blue'
+          '2px solid #0c8a1f'
         );
-    } else {
-      this.renderer.setStyle(
-        this.el.nativeElement,
-        'border',
-        '2px dashed red'
-      );
+        this.courseState = 'newCourse';
+        console.log(this.courseState)
+
+      } else if (
+        this.creationDate.valueOf() > this.currentDate.valueOf()
+      ) {
+        this.renderer.setStyle(
+          this.el.nativeElement,
+          'border',
+          '2px solid #006bb8'
+        );
+        this.courseState = 'upcomingCourse';
+        console.log(this.courseState)
+      }
     }
-    
-
-
-
-    
-  }
-
 }
+

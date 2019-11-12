@@ -1,5 +1,5 @@
 <section *ngFor="let item of courseData" class="course-items">
-    <div appItemBorderStyle [creationDate]=item.date class="section_wrapper">
+    <div (courseState)='courseState' appItemBorderStyle [creationDate]=item.date class="section_wrapper">
         <div class="course-item-inform"> 
             <h2 class="course-item-inform-header" >Video Course 1. {{item.title}} <i *ngIf="item.topRated" class="fas fa-star"></i> </h2>
             <p class="course-item-inform-text"> {{item.description}}</p>

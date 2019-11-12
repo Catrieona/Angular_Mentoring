@@ -29,9 +29,9 @@ describe('CoursePageSearchComponent', () => {
  
   it("should log course id", () => {
     let userValue=debugElement.query(By.css('.course-page-search')).nativeElement.value;
-    const consoleSpy = spyOn(console, 'log')
+    const consoleSpy = spyOn(console, 'log');
     component.getUserValue(userValue);
-    expect(consoleSpy).toHaveBeenCalled()
+    expect(consoleSpy).toHaveBeenCalled();
   })
 
 
