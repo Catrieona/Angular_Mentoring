@@ -20,7 +20,7 @@ describe('CourseListItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CourseListItemComponent);
     component = fixture.componentInstance;
-    component.courseData=[{id:1, title: "testTitle", description: "testDiscr", duration: "testDuration", date: "testDate"}];
+    component.courseData=[{id:1, title: "testTitle", description: "testDiscr", duration: "testDuration", date: "testDate", topRated: true}];
     debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
