@@ -17,7 +17,7 @@ ngOnInit() {
   this. courseData = this.data.dataCourse;
 }
 
-public ondeleteCourseItem(id: any) {
+public ondeleteCourseItem(id: number) {
     this.data.deleteItem(id);
   }
 }

@@ -29,11 +29,11 @@ describe('CoursePageListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should log course id", () => {
+  it('should log course id', () => {
     let id=5;
-    const consoleSpy = spyOn(console, 'log')
+    const consoleSpy = spyOn(console, 'log');
     component.ondeleteCourseItem(id);
-    expect(consoleSpy).toHaveBeenCalled()
-  })
+    expect(consoleSpy).toHaveBeenCalled();
+  });
 
 });

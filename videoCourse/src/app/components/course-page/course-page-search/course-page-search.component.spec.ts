@@ -26,7 +26,7 @@ describe('CoursePageSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it("should emmit getUserValue once clicked", () => {
+  it('should emmit getUserValue once clicked', () => {
     const spy = spyOn(component, 'getUserValue');
     debugElement
     .query(By.css('.course-page-search-button'))
@@ -34,13 +34,13 @@ describe('CoursePageSearchComponent', () => {
 
     fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
-  })
+  });
 
-  it("should log course id", () => {
-    let userValue=debugElement.query(By.css('.course-page-search')).nativeElement.value;
-    const consoleSpy = spyOn(console, 'log')
+  it('should log course id', () => {
+    let userValue = debugElement.query(By.css('.course-page-search')).nativeElement.value;
+    const consoleSpy = spyOn(console, 'log');
     component.getUserValue(userValue);
-    expect(consoleSpy).toHaveBeenCalled()
+    expect(consoleSpy).toHaveBeenCalled();
   })
 
 

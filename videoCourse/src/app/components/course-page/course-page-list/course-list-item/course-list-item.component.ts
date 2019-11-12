@@ -9,7 +9,7 @@ export class CourseListItemComponent {
   @Input() courseData: Array<Object>;
   @Output() ondeleteCourseItem = new EventEmitter<string>();
 
-  public deleteCourseItem(id:any) {
+  public deleteCourseItem(id: string) {
     this.ondeleteCourseItem.emit(id);
   }
 }

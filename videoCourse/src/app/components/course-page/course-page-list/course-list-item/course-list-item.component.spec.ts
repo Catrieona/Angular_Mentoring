@@ -20,15 +20,15 @@ describe('CourseListItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CourseListItemComponent);
     component = fixture.componentInstance;
-   debugElement = fixture.debugElement;
-   fixture.detectChanges();
+    debugElement = fixture.debugElement;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should emmit deleteCourseItem once clicked", () => {
+  it('should emmit deleteCourseItem once clicked', () => {
     const spy = spyOn(component, 'deleteCourseItem');
     debugElement
     .query(By.css('.course-itme-delete'))
@@ -36,6 +36,6 @@ describe('CourseListItemComponent', () => {
 
     fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
-  })
+  });
 
 });
