@@ -6,10 +6,12 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
   styleUrls: ['./course-list-item.component.scss']
 })
 export class CourseListItemComponent {
-  @Input() courseData: Array<Object>;
-  @Output() ondeleteCourseItem = new EventEmitter<string>();
-
-  public deleteCourseItem(id: string) {
-    this.ondeleteCourseItem.emit(id);
+  @Input() courseData: Array<{id: number, title: string, description: string, duration: string, date: Date, topRated: boolean}>;
+  @Output() onDeleteCourseItem = new EventEmitter<number>();
+  @Input() courseState: string;
+ 
+  public deleteCourseItem(id: number) {
+    this.onDeleteCourseItem.emit(id);
+    console.log(this.courseState);
   }
 }

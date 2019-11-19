@@ -18,27 +18,30 @@
         margin: 0 auto;
         background-color: white;
         border-radius: 5px;
-        
-        .course-itme-inform {
+        .course-item-inform {
             width: 80%;
             position: relative;
             padding-left: 10px;
             padding-bottom: 20px 0;
-            .course-itme-inform-header {
+            .course-item-inform-header {
                 font-size: 24px;
                 font-weight: bold;
                 padding: 25px 0 0 25px;
+                .fa-star {
+                    font-size: 14px;
+                    color: rgb(241, 241, 23);
+                }
             }
-            .course-itme-inform-text {
+            .course-item-inform-text {
                 font-weight: 14px;
                 padding: 25px;
                 line-height: 2;
             }
-            .course-itme-timeline-duration, .course-itme-timeline-calendar {
+            .course-item-timeline-duration, .course-item-timeline-calendar {
                 display: inline-block;
                 margin: 20px;
             }
-            .course-itme-timeline {
+            .course-item-timeline {
                 position: absolute;
                 color: rgb(163, 162, 162);
                 right:0;
@@ -46,12 +49,12 @@
                 top: 0;
             }
         }
-        .course-itme-editBlock {
+        .course-item-editBlock {
             position: absolute;
             display: flex;
             right: 1%;
             top: 50px;
-            .course-itme-edit, .course-itme-delete {
+            .course-item-edit, .course-item-delete {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
@@ -66,7 +69,7 @@
                 cursor: pointer;
                 border: 0;
             }
-            .course-itme-edit:hover,.course-itme-delete:hover {
+            .course-item-edit:hover,.course-item-delete:hover {
                 background-color: #62d3f5;
             }
         }
