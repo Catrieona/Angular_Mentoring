@@ -11,6 +11,7 @@ import { CoursePageListComponent } from './components/course-page/course-page-li
 import { CourseListItemComponent } from './components/course-page/course-page-list/course-list-item/course-list-item.component';
 import { CoursePageFooterComponent } from './components/course-page/course-page-footer/course-page-footer.component';
 import { ItemBorderStyleDirective } from './components/course-page/course-page-list/course-list-item/item-border-style.directive';
+import { CourseDurationPipe } from './components/course-page/course-page-list/course-list-item/course-duration.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ItemBorderStyleDirective } from './components/course-page/course-page-l
     CoursePageListComponent,
     CourseListItemComponent,
     CoursePageFooterComponent,
-    ItemBorderStyleDirective
+    ItemBorderStyleDirective,
+    CourseDurationPipe,
   ],
   imports: [
     BrowserModule,

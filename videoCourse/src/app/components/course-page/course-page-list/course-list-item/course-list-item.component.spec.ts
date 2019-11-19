@@ -3,7 +3,6 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { CourseListItemComponent } from './course-list-item.component';
 
-
 describe('CourseListItemComponent', () => {
   let component: CourseListItemComponent;
   let fixture: ComponentFixture<CourseListItemComponent>;

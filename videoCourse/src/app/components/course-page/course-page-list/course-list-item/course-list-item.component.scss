@@ -12,12 +12,16 @@
     width: 100%;
     background-color: rgb(242, 243, 247);
     padding: 20px 0;
+    
     .section_wrapper {
         position: relative;
         width: 90%;
         margin: 0 auto;
         background-color: white;
         border-radius: 5px;
+        &.topRatedcourse {
+            background-color: rgb(202, 173, 197);
+        }
         .course-item-inform {
             width: 80%;
             position: relative;
@@ -43,7 +47,7 @@
             }
             .course-item-timeline {
                 position: absolute;
-                color: rgb(163, 162, 162);
+                color: rgb(59, 58, 58);
                 right:0;
                 font-size: 13px;
                 top: 0;
