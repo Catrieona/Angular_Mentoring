@@ -1,5 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
-import { ElementData } from '../dataCourse';
+import { Component, OnInit, Input} from '@angular/core';
 
 
 @Component({
@@ -7,17 +6,14 @@ import { ElementData } from '../dataCourse';
   templateUrl: './course-page-list.component.html',
   styleUrls: ['./course-page-list.component.scss']
 })
-export class CoursePageListComponent implements OnInit {
+export class CoursePageListComponent  {
 
- public data = new ElementData();
- public courseData: Array<{id: number, title: string, description: string, duration: number, date: object, topRated: boolean}>;
+  public confirmMessage: boolean;
+  public itemDelId;
 
-
-ngOnInit() {
-  this.courseData = this.data.dataCourse;
-}
-
-public onDeleteCourseItem(id: number) {
-    this.data.deleteItem(id);
+  public onDeleteCourseItem(id: number) {
+    this.confirmMessage = true;
+    this.itemDelId = id;
   }
+
 }
