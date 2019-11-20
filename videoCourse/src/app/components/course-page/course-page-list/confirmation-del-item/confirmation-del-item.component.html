@@ -1,7 +1,8 @@
-<section *ngIf="showConfirmEl" class="consfirmDellItem">
-    <p>Do you really want to delete this course</p>
+<section *ngIf="this.dataCourseService.showConfirmMessage" class="confirmDellItem">
+    <p  class="confirmText">Do you really want to delete this course?</p>
     <div class="consfirmButtonWrapper"> 
-        <button (click)="deliteItem()"> OK </button>
-        <button> CANCEL </button>
+            <button (click)="deliteItem()"> OK </button>
+            <button> CANCEL </button>
     </div>
 </section>
+

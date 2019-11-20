@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { DataCourseService } from "../data-course.service";
 
 
 @Component({
@@ -8,11 +9,12 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class CoursePageListComponent  {
 
-  public confirmMessage: boolean;
-  public itemDelId;
+  constructor(private dataCourseService: DataCourseService) { }
+
+  public itemDelId: number;
 
   public onDeleteCourseItem(id: number) {
-    this.confirmMessage = true;
+    this.dataCourseService.showConfirmMessage=true;
     this.itemDelId = id;
   }
 

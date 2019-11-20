@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input, OnInit } from '@angular/core';
 import { DataCourseService } from '../../data-course.service';
+
 
 @Component({
   selector: 'app-confirmation-del-item',
@@ -8,14 +9,12 @@ import { DataCourseService } from '../../data-course.service';
 })
 export class ConfirmationDelItemComponent {
 
-  @Input() showConfirmEl: boolean;
   @Input() itemDelId: number;
 
   constructor (private dataCourseService: DataCourseService) {}
 
   public deliteItem () {
     this.dataCourseService.removeItem(this.itemDelId);
-    this.showConfirmEl = false;
+    this.dataCourseService.showConfirmMessage=false;
   }
-
 }

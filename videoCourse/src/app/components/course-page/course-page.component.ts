@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {PageListData} from '../models/page-list-data';
 
 @Component({
   selector: 'app-course-page',

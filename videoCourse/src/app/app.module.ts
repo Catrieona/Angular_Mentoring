@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {Router} from '@angular/router';
+
 
 import { AppRoutingModule } from './app-routing.module';
+import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { CoursePageComponent } from './components/course-page/course-page.component';
 import { CoursePageHeaderComponent } from './components/course-page/course-page-header/course-page-header.component';
@@ -13,6 +16,8 @@ import { CoursePageFooterComponent } from './components/course-page/course-page-
 import { ItemBorderStyleDirective } from './components/course-page/course-page-list/course-list-item/item-border-style.directive';
 import { CourseDurationPipe } from './components/course-page/course-page-list/course-list-item/course-duration.pipe';
 import { ConfirmationDelItemComponent } from './components/course-page/course-page-list/confirmation-del-item/confirmation-del-item.component';
+import { LoginModule } from './components/course-log-in/login/login.module';
+
 
 @NgModule({
   declarations: [
@@ -30,10 +35,16 @@ import { ConfirmationDelItemComponent } from './components/course-page/course-pa
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    LoginModule,
+    AppRoutingModule,
   ],
   providers: [],
   exports: [CourseListItemComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+constructor (router: Router) {
+  console.log("Routes:", JSON.stringify(router.config, undefined, 2))
+}
+
+}

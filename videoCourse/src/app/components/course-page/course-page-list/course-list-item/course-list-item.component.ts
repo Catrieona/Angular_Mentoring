@@ -26,7 +26,6 @@ ngDoCheck () {
 
 getDataCourse() {
   this.courseData = this.dataCourseService.getItemList();
-  console.log(this.courseData);
 }
 
 

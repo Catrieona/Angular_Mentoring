@@ -6,6 +6,8 @@ import {PageListData} from '../models/page-list-data';
 })
 export class DataCourseService {
 
+  public showConfirmMessage=false;
+
   public dataCourse: PageListData [] = [
     {
         id: 1,
@@ -56,20 +58,10 @@ export class DataCourseService {
   }
 
   public removeItem(id: number) {
-    
     this.dataCourse.splice(this.dataCourse.indexOf(this.dataCourse.find(elem => elem.id == id)), 1);
-    console.log(this.dataCourse)
+    console.log(this.dataCourse);
     this.getItemList();
     }
 
-
-
-//   public createCourse () {}
-//   public getItemById () {}
-//   public updageItem () {}
-
-//   public removeItem(id: number) {
-//     console.log(id);
-// }
 }
 

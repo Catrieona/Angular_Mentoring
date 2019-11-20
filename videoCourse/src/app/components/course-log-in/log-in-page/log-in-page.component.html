@@ -1,0 +1,23 @@
+
+<section class="userLoginForm">
+    <div class='userLoginFormWrapper'>
+        <div class="userLogin_header">
+            <h2>Login </h2> <p>Wrong e-mail password</p>
+        </div>
+        <div class="userLogin_email">
+            <label for="user_mail">E-mail </label>
+            <span>*required</span>
+        </div>
+        <input #usermail placeholder="Enter e-mail" id="user_mail" type="email">
+        <div class="userLogin_password">
+                <label for="user_password">E-mail </label>
+                <span>*required</span>
+            </div>
+        <input #userpass placeholder="Enter password" id="user_password" type="text">
+
+        <div class="userLogin_footer" (click)="LoginUser(usermail.value, userpass.value)">
+                <a href="#">Forgot password? </a>
+                <button class="userLogin_button">Login </button>
+        </div>
+    </div>
+</section>
