@@ -17,6 +17,7 @@ import { ItemBorderStyleDirective } from './components/course-page/course-page-l
 import { CourseDurationPipe } from './components/course-page/course-page-list/course-list-item/course-duration.pipe';
 import { ConfirmationDelItemComponent } from './components/course-page/course-page-list/confirmation-del-item/confirmation-del-item.component';
 import { LoginModule } from './components/course-log-in/login/login.module';
+import { AddNewCourseComponent } from './components/course-add-new/add-new-course.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { LoginModule } from './components/course-log-in/login/login.module';
     ItemBorderStyleDirective,
     CourseDurationPipe,
     ConfirmationDelItemComponent,
+    AddNewCourseComponent,
   ],
   imports: [
     BrowserModule,
