@@ -1,10 +1,11 @@
-import { Component, Input, } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DataCourseService } from '../../core/services/data-course.service';
 
 @Component({
   selector: 'app-confirmation-del-item',
   templateUrl: './confirmation-del-item.component.html',
-  styleUrls: ['./confirmation-del-item.component.scss']
+  styleUrls: ['./confirmation-del-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfirmationDelItemComponent {
   @Input() itemDelId: number;
