@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AutorizationService } from '../autorization.service';
+import { AutorizationService } from '../../core/services/autorization.service';
 
 @Component({
   selector: 'app-log-in-page',
@@ -13,8 +13,5 @@ constructor(private autorizationService: AutorizationService) { }
 
  public LoginUser (email: string, pass: string) {
    this.autorizationService.LoginUser(email, pass);
-   localStorage.setItem('userLoginInfo', JSON.stringify({userEmail: email, userPass: pass}))
- }
-
-
+  }
 }

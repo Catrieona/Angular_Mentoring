@@ -1,6 +1,6 @@
 @font-face {
     font-family: Sourcesanspro;
-    src: url(../../../../fonts/sourcesanspro.ttf);
+    src: url(../../../../assets/fonts/sourcesanspro.ttf);
   }
 
 .course-page-serchBlock {
@@ -20,7 +20,7 @@
                 margin-right: 5px;
                 border: 1px solid grey;
                 border-radius: 3px;
-                background: url(../../../../img//search.svg) no-repeat 10px 13px;
+                background: url(../../../../assets//img/search.svg) no-repeat 10px 13px;
             }
             .course-page-search-button {
                 height: 47px;

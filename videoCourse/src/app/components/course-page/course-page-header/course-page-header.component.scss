@@ -1,10 +1,10 @@
 @font-face {
     font-family: Oswald;
-    src: url(../../../../fonts/Oswald-Regular.ttf);
+    src: url(../../../../assets/fonts/Oswald-Regular.ttf);
   }
   @font-face {
     font-family: Sourcesans;
-    src: url(../../../../fonts/sourcesansproextralight.ttf);
+    src: url(../../../../assets/fonts/sourcesansproextralight.ttf);
   }
 
 .course_page_headerBlock {
@@ -28,7 +28,7 @@
             letter-spacing: 0.25px;
             }
             .course_page_header-logo  {
-                background-image: url("../../../../img/6A3E93C7-E6E3-44D3-AF02-5B7998D50EE7.svg");
+                background-image: url("../../../../assets/img/6A3E93C7-E6E3-44D3-AF02-5B7998D50EE7.svg");
                 width: 45px;
                 height: 36px;
                 object-fit: contain;
