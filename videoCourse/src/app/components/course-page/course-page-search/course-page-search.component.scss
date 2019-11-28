@@ -55,6 +55,10 @@
             cursor: pointer;
             border: 0;
         }
+        .curse-add-button a {
+            text-decoration: none;
+            color: white;
+        }
             .curse-add-button:hover{
                 background-color: rgb(111, 212, 243);
             }
