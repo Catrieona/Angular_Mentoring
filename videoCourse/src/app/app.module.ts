@@ -15,6 +15,7 @@ import { CourseDurationPipe } from './shared/pipes/course-duration.pipe';
 import { ConfirmationDelItemComponent } from './shared/confirmation-del-item/confirmation-del-item.component';
 import { LoginModule } from './shared/course-log-in/login.module';
 import { AddNewCourseComponent } from './shared/course-add-new/add-new-course.component';
+import { EditCourseComponent } from './shared/course-edit/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AddNewCourseComponent } from './shared/course-add-new/add-new-course.co
     CourseDurationPipe,
     ConfirmationDelItemComponent,
     AddNewCourseComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,
