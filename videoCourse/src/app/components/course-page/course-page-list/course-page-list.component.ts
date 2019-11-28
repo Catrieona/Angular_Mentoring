@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy} from '@angular/core';
-import { DataCourseService } from "../../../core/services/data-course.service";
+import { DataCourseService } from '../../../core/services/data-course.service';
 
 @Component({
   selector: 'app-course-page-list',
@@ -14,7 +14,7 @@ export class CoursePageListComponent  {
   public itemDelId: number;
 
   public onDeleteCourseItem(id: number) {
-    this.dataCourseService.showConfirmMessage=true;
+    this.dataCourseService.showConfirmMessage = true;
     this.itemDelId = id;
   }
 

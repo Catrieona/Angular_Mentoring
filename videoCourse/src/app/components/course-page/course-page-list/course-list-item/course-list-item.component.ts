@@ -7,7 +7,6 @@ import {PageListData} from '../../../../core/models/page-list-data';
   selector: 'app-course-list-item',
   templateUrl: './course-list-item.component.html',
   styleUrls: ['./course-list-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
