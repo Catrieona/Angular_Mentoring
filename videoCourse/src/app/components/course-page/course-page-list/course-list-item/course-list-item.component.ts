@@ -1,6 +1,7 @@
-import { Component, Output, Input, EventEmitter, OnInit,  ChangeDetectionStrategy } from '@angular/core';
+import { Component, Output, Input, EventEmitter, OnInit} from '@angular/core';
 import { DataCourseService } from '../../../../core/services/data-course.service';
 import {PageListData} from '../../../../core/models/page-list-data';
+import { ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -12,8 +13,15 @@ export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
   public courseData: PageListData [];
+  public id: number;
 
-constructor(private dataCourseService: DataCourseService) { }
+constructor(private dataCourseService: DataCourseService,
+            private activateRoute: ActivatedRoute) {
+            this.id = activateRoute.snapshot.params.id;
+          }
+
+
+
 
   ngOnInit() {
     this.getDataCourse();
