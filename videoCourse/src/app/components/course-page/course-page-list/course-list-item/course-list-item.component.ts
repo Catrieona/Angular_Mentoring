@@ -1,6 +1,6 @@
 import { Component, Output, Input, EventEmitter, OnInit} from '@angular/core';
 import { DataCourseService } from '../../../../core/services/data-course.service';
-import {PageListData} from '../../../../core/models/page-list-data';
+import { PageListData } from '../../../../core/models/page-list-data';
 import { ActivatedRoute} from '@angular/router';
 
 
@@ -21,14 +21,16 @@ constructor(private dataCourseService: DataCourseService,
           }
 
 
-
-
   ngOnInit() {
     this.getDataCourse();
   }
 
   public getDataCourse() {
     this.courseData = this.dataCourseService.getItemList();
+  }
+
+  public getCoursedata(id: number) {
+    this.dataCourseService.getCourseItem(id);
   }
 
   public deleteCourseItem(id: number) {

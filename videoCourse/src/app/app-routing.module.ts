@@ -4,6 +4,7 @@ import { LogInPageComponent } from './shared/course-log-in/log-in-page.component
 import { AddNewCourseComponent } from './shared/course-add-new/add-new-course.component';
 import { EditCourseComponent } from './shared/course-edit/edit-course.component';
 import { CoursePageComponent } from './components/course-page/course-page.component';
+import { NotFoundComponent } from './shared/not-found-component/not-found.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'courses', pathMatch: 'full'},
@@ -20,7 +21,7 @@ const routes: Routes = [
       ]
   },
   {path: 'courses/login', component: LogInPageComponent},
-  // { path: '**', component: NotFoundComponent }
+  {path: '**', component: NotFoundComponent }
 
 ];
 

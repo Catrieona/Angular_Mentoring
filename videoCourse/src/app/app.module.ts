@@ -16,6 +16,7 @@ import { ConfirmationDelItemComponent } from './shared/confirmation-del-item/con
 import { LoginModule } from './shared/course-log-in/login.module';
 import { AddNewCourseComponent } from './shared/course-add-new/add-new-course.component';
 import { EditCourseComponent } from './shared/course-edit/edit-course.component';
+import { NotFoundComponent } from './shared/not-found-component/not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditCourseComponent } from './shared/course-edit/edit-course.component'
     CourseDurationPipe,
     ConfirmationDelItemComponent,
     AddNewCourseComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { EditCourseComponent } from './shared/course-edit/edit-course.component'
   exports: [CourseListItemComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor (router: Router) {
   }
 }
