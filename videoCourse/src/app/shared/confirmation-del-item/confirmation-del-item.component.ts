@@ -16,4 +16,8 @@ export class ConfirmationDelItemComponent {
     this.dataCourseService.removeItem(this.itemDelId);
     this.dataCourseService.showConfirmMessage = false;
   }
+
+  public hideConfirmMessage () {
+    this.dataCourseService.showConfirmMessage = false;
+  }
 }

@@ -16,9 +16,9 @@
         </div>
         
         <div class="course-item-editBlock"> 
-            <button class="course-item-edit">
+            <button [routerLink]="['edit/', item.id]" class="course-item-edit">
                 <i class="fas fa-pencil-alt"></i>
-                <a [routerLink]="['edit/', item.id]"> Edit </a>
+                Edit 
             </button>
             <button (click)="deleteCourseItem(item.id)" class="course-item-delete">
                 <i class="fas fa-trash"></i>
