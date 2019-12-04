@@ -1,8 +1,6 @@
 import { Component, Output, Input, EventEmitter, OnInit} from '@angular/core';
 import { DataCourseService } from '../../../../core/services/data-course.service';
 import { PageListData } from '../../../../core/models/page-list-data';
-import { ActivatedRoute} from '@angular/router';
-
 
 @Component({
   selector: 'app-course-list-item',
@@ -12,14 +10,13 @@ import { ActivatedRoute} from '@angular/router';
 export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
+
   public courseData: PageListData [];
-  public id: number;
+  private id: number;
 
 constructor(private dataCourseService: DataCourseService,
-            private activateRoute: ActivatedRoute) {
-            this.id = activateRoute.snapshot.params.id;
-          }
-
+          ) {
+  }
 
   ngOnInit() {
     this.getDataCourse();
@@ -27,10 +24,6 @@ constructor(private dataCourseService: DataCourseService,
 
   public getDataCourse() {
     this.courseData = this.dataCourseService.getItemList();
-  }
-
-  public getCoursedata(id: number) {
-    this.dataCourseService.getCourseItem(id);
   }
 
   public deleteCourseItem(id: number) {

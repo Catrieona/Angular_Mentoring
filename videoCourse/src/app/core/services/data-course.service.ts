@@ -7,6 +7,8 @@ import {PageListData} from '../models/page-list-data';
 export class DataCourseService {
 
   public showConfirmMessage = false;
+  public course: PageListData;
+
 
   public dataCourse: PageListData [] = [
     {
@@ -58,12 +60,12 @@ export class DataCourseService {
   }
 
   public removeItem(id: number) {
-    this.dataCourse.splice(this.dataCourse.indexOf(this.dataCourse.find(elem => elem.id == id)), 1);
+    this.dataCourse.splice(this.dataCourse.indexOf(this.dataCourse.find(elem => elem.id === id)), 1);
     this.getItemList();
     }
 
   public getCourseItem(id: number) {
-    console.log(id);
+    this.course = this.dataCourse.find(elem => elem.id === id);
   }
 
 }

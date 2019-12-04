@@ -12,7 +12,7 @@ export class ConfirmationDelItemComponent {
 
   constructor(private dataCourseService: DataCourseService) {}
 
-  public deliteItem(){
+  public deliteItem() {
     this.dataCourseService.removeItem(this.itemDelId);
     this.dataCourseService.showConfirmMessage = false;
   }
