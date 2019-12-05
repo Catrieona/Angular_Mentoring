@@ -1,0 +1,69 @@
+@font-face {
+    font-family: Sourcesanspro;
+    src: url(../../../assets/fonts/sourcesanspro.ttf);
+  }
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Sourcesanspro;
+}
+
+.addCourseForm {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    .addCourseWrapper {
+        margin: 5% auto;
+        width: 90%;
+        
+        .addCourse_input {
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 40%;
+        }
+        .addCourse_required {
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: 0.19px;
+            color: rgb(165, 164, 164);
+        }
+        .addCourse_input+input, .addCourse_input+textarea {
+            padding: 10px;
+            width: 40%;
+            border-radius: 3px;
+            border: solid 1px rgb(190, 189, 189);
+            background-color: #ffffff;
+        }
+        .addCourse_input::placeholder {
+            color: rgb(165, 164, 164);
+        }
+        
+        #addCourse_title, #addCourse_descript, .addCourse_description, .addCourse_title{
+            width: 100%
+        }
+        .addCourseButton {
+            margin: 15px;
+            position: absolute;
+            right: 0;
+        }
+        .addCourseButton button {
+            width: 80px;
+            height: 40px;
+            border: none;
+            border-radius: 3px;
+            background-color: #9bc837;
+            cursor: pointer;
+            margin: 10px;
+        }
+    }
+}

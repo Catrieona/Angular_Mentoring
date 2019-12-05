@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-course-page',
@@ -6,5 +6,4 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-page.component.scss']
 })
 export class CoursePageComponent {
-
 }

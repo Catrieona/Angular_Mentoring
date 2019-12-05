@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CoursePageFooterComponent } from './course-page-footer.component';
 
-describe('CoursePageFooterComponent', () => {
-  let component: CoursePageFooterComponent;
-  let fixture: ComponentFixture<CoursePageFooterComponent>;
+import { NotFoundComponent } from './not-found.component';
+
+describe('NotFoundComponent', () => {
+  let component: NotFoundComponent;
+  let fixture: ComponentFixture<NotFoundComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoursePageFooterComponent ]
+      declarations: [ NotFoundComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CoursePageFooterComponent);
+    fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

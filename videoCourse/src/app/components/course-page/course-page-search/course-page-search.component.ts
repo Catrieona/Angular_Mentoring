@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-course-page-search',
   templateUrl: './course-page-search.component.html',
-  styleUrls: ['./course-page-search.component.scss']
+  styleUrls: ['./course-page-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class CoursePageSearchComponent {
   public userInutValue: string;

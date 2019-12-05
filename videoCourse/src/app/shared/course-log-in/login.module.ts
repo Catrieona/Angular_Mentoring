@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LogInPageComponent } from '../log-in-page/log-in-page.component';
-
+import { LogInPageComponent } from '../../shared/course-log-in/log-in-page.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -10,6 +10,7 @@ import { LogInPageComponent } from '../log-in-page/log-in-page.component';
   ],
   imports: [
     CommonModule,
+    RouterModule
   ]
 })
 export class LoginModule { }

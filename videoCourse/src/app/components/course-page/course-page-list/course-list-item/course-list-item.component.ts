@@ -1,35 +1,33 @@
-import { Component, Output, Input, EventEmitter, OnInit,  DoCheck } from '@angular/core';
-import { DataCourseService } from '../../data-course.service';
-import {PageListData} from '../../../models/page-list-data';
-
+import { Component, Output, Input, EventEmitter, OnInit} from '@angular/core';
+import { DataCourseService } from '../../../../core/services/data-course.service';
+import { PageListData } from '../../../../core/models/page-list-data';
 
 @Component({
   selector: 'app-course-list-item',
   templateUrl: './course-list-item.component.html',
-  styleUrls: ['./course-list-item.component.scss']
+  styleUrls: ['./course-list-item.component.scss'],
 })
-export class CourseListItemComponent implements OnInit,  DoCheck {
+export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
+
   public courseData: PageListData [];
+  private id: number;
 
-constructor(private dataCourseService: DataCourseService) { }
+constructor(private dataCourseService: DataCourseService,
+          ) {
+  }
 
-ngOnInit() {
-  this.getDataCourse();
-}
+  ngOnInit() {
+    this.getDataCourse();
+  }
 
-ngDoCheck () {
-  this.courseData = this.dataCourseService.getItemList();
+  public getDataCourse() {
+    this.courseData = this.dataCourseService.getItemList();
+  }
 
-}
-
-getDataCourse() {
-  this.courseData = this.dataCourseService.getItemList();
-}
-
-
-public deleteCourseItem(id: number) {
+  public deleteCourseItem(id: number) {
     this.onDeleteCourseItem.emit(id);
-}
+    this.getDataCourse();
+  }
 }
