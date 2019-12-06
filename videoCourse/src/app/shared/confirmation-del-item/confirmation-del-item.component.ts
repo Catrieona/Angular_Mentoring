@@ -5,7 +5,6 @@ import { DataCourseService } from '../../core/services/data-course.service';
   selector: 'app-confirmation-del-item',
   templateUrl: './confirmation-del-item.component.html',
   styleUrls: ['./confirmation-del-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfirmationDelItemComponent {
   @Input() itemDelId: number;
@@ -17,7 +16,7 @@ export class ConfirmationDelItemComponent {
     this.dataCourseService.showConfirmMessage = false;
   }
 
-  public hideConfirmMessage () {
+  public hideConfirmMessage() {
     this.dataCourseService.showConfirmMessage = false;
   }
 }

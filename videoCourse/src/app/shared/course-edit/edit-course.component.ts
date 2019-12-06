@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PageListData } from 'src/app/core/models/page-list-data';
-import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute} from '@angular/router';
 import { DataCourseService } from '../../core/services/data-course.service';
 
@@ -12,8 +11,9 @@ import { DataCourseService } from '../../core/services/data-course.service';
   styleUrls: ['./edit-course.component.scss']
 })
 export class EditCourseComponent implements OnInit {
-  public id: number;
   public course: PageListData;
+  id: number;
+  private sub: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,21 +22,21 @@ export class EditCourseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.paramMap.pipe(
-        switchMap(params => params.get('id'))
-    )
-    .subscribe(data => this.id = + data);
-    this.getCourse();
+    this.sub = this.route.params.subscribe(params => {
+    this.id = +params.id;
+    });
   }
-
 
   getCourse() {
     this.dataCourseService.getCourseItem(this.id);
     this.course = this.dataCourseService.course;
-    console.log(this.course);
   }
 
   saveCourseDate() {
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }

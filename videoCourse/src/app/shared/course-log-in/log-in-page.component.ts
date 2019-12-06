@@ -8,18 +8,18 @@ import { AutorizationService } from '../../core/services/autorization.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogInPageComponent  {
-  public loginUser: boolean;
-  public routerLogin:string;
+  public correctLogin: boolean;
+  public routerLogin: string;
 
 constructor(private autorizationService: AutorizationService) { }
 
- public LoginUser (email: string, pass: string) {
+ public onLoginUser(email: string, pass: string) {
    this.autorizationService.LoginUser(email, pass);
-   this.loginUser = this.autorizationService.userLogin
-   if (this.loginUser) {
-     this.routerLogin = ""
-   } else {
-     console.log("email is not correct")
-   }
+   this.correctLogin = this.autorizationService.userLogin;
+   if (this.correctLogin) {
+      this.routerLogin = '';
+      } else {
+      console.log('email is not correct');
+    }
   }
 }
