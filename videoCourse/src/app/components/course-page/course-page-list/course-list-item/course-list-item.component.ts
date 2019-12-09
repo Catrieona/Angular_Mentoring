@@ -1,20 +1,23 @@
-import { Component, Output, Input, EventEmitter, OnInit} from '@angular/core';
+import { Component, Output, Input, EventEmitter, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { DataCourseService } from '../../../../core/services/data-course.service';
 import { PageListData } from '../../../../core/models/page-list-data';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-course-list-item',
   templateUrl: './course-list-item.component.html',
   styleUrls: ['./course-list-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
 
-  public courseData: PageListData [];
+  public courseData;
   private id: number;
+  public dataCourse: any = [];
 
-constructor(private dataCourseService: DataCourseService,
+constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient, private cdRef: ChangeDetectorRef
           ) {
   }
 
@@ -23,7 +26,12 @@ constructor(private dataCourseService: DataCourseService,
   }
 
   public getDataCourse() {
-    this.courseData = this.dataCourseService.getItemList();
+  this.dataCourseService.getItemList()
+    .subscribe ((dataCourse) => {
+      this.dataCourse = dataCourse;
+      this.cdRef.markForCheck();
+      console.log(dataCourse);
+    });
   }
 
   public deleteCourseItem(id: number) {

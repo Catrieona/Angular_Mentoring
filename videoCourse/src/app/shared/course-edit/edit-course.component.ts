@@ -29,8 +29,8 @@ export class EditCourseComponent implements OnInit {
   }
 
   public getCourse() {
-    this.dataCourseService.getCourseItem(this.id);
-    this.course = this.dataCourseService.course;
+    // this.dataCourseService.getCourseItem(this.id);
+    // this.course = this.dataCourseService.course;
   }
 
   saveCourseDate() {

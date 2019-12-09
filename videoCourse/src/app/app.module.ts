@@ -17,6 +17,7 @@ import { LoginModule } from './shared/course-log-in/login.module';
 import { AddNewCourseComponent } from './shared/course-add-new/add-new-course.component';
 import { EditCourseComponent } from './shared/course-edit/edit-course.component';
 import { NotFoundComponent } from './shared/not-found-component/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NotFoundComponent } from './shared/not-found-component/not-found.compon
     NotFoundComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     LoginModule,
     AppRoutingModule,
