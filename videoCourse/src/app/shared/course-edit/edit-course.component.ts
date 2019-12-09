@@ -21,13 +21,14 @@ export class EditCourseComponent implements OnInit {
     ) {
   }
 
-  ngOnInit() {
+ public ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
     this.id = +params.id;
+    this.getCourse();
     });
   }
 
-  getCourse() {
+  public getCourse() {
     this.dataCourseService.getCourseItem(this.id);
     this.course = this.dataCourseService.course;
   }
@@ -35,7 +36,7 @@ export class EditCourseComponent implements OnInit {
   saveCourseDate() {
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
