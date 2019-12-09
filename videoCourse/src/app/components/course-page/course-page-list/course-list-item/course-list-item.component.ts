@@ -25,9 +25,9 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
     this.getDataCourse();
   }
 
-  public getDataCourse() {
+  public getDataCourse(): void {
   this.dataCourseService.getItemList()
-    .subscribe ((dataCourse) => {
+    .subscribe ((dataCourse: PageListData[]) => {
       this.dataCourse = dataCourse;
       this.cdRef.markForCheck();
       console.log(dataCourse);
