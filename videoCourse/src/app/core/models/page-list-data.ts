@@ -1,6 +1,6 @@
 export interface PageListData {
     id: number;
-    title: string;
+    name: string;
     description: string;
     duration: number;
     date: Date;

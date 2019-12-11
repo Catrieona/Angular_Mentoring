@@ -30,7 +30,6 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
     .subscribe ((dataCourse: PageListData[]) => {
       this.dataCourse = dataCourse;
       this.cdRef.markForCheck();
-      console.log(dataCourse);
     });
   }
 
@@ -38,4 +37,10 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
     this.onDeleteCourseItem.emit(id);
     this.getDataCourse();
   }
+  public loadMoreCourses() {
+  this.dataCourseService.onLoadMoreCourses();
+  this. getDataCourse();
+  }
+
+
 }
