@@ -2,7 +2,6 @@ import { Injectable, ChangeDetectorRef } from '@angular/core';
 import {PageListData} from '../models/page-list-data';
 import { HttpClient} from '@angular/common/http';
 import {Observable, BehaviorSubject} from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -27,7 +26,7 @@ public test;
   }
 
   public removeItem(id: number) {
-    return this.httpClient.delete(`http://localhost:3004/courses/${id}`);
+   return this.httpClient.delete<PageListData[]>(`http://localhost:3004/courses/${id}`)
   }
 
   public onLoadMoreCourses() {
@@ -40,12 +39,9 @@ public test;
   }
 
   public SearchCourseItem(value: string) {
-    return this.httpClient.get(`http://localhost:3004/courses/`)
-   .pipe(
-    filter(data => data[0].name == value)
-    )
-
+    let query = 'http://localhost:3004/courses';
+    this.httpClient.get<PageListData[]>(query, {params: {textFragment: value}})
+   .subscribe(response => this.courses$.next(response));
   }
-
 }
 

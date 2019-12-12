@@ -17,7 +17,8 @@ constructor(private autorizationService: AutorizationService) { }
 
  public onLoginUser() {
 
-  this.autorizationService.LoginUser().subscribe((data: UserData) => this.user = data);
-  console.log(this.user);
+  this.autorizationService.LoginUser()
+  .subscribe((data) => console.log(data));
+  
   }
 }

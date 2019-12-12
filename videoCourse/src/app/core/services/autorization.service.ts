@@ -7,11 +7,11 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AutorizationService {
 
-  constructor(private http: HttpClient){ }
+  constructor(private httpClient: HttpClient){ }
   public userLogin: boolean;
 
 
   public LoginUser() {
-    return this.http.get('assets/user.json');
+    return this.httpClient.get('http://localhost:3004/auth');
   }
 }

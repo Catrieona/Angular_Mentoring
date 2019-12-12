@@ -36,12 +36,12 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
 
   public deleteCourseItem(id: number) {
     this.onDeleteCourseItem.emit(id);
+    this.getDataCourse();
   }
 
 
   public loadMoreCourses() {
   this.dataCourseService.onLoadMoreCourses();
-  this. getDataCourse();
   }
 
 

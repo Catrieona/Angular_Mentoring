@@ -11,10 +11,11 @@ import { DataCourseService } from '../../../core/services/data-course.service';
 export class CoursePageSearchComponent {
   constructor (private dataCourseService: DataCourseService) {}
   public userInutValue: string;
+  tempData: any = [];
   
  public getUserValue(value: string) {
     this.userInutValue = value;
     this.dataCourseService.SearchCourseItem(this.userInutValue)
-    .subscribe(data => console.log(data));
+    ;
  }
 }
