@@ -2,8 +2,6 @@ import { Component, OnInit,  ChangeDetectorRef } from '@angular/core';
 import { PageListData } from 'src/app/core/models/page-list-data';
 import { ActivatedRoute} from '@angular/router';
 import { DataCourseService } from '../../core/services/data-course.service';
-import {HttpClient} from '@angular/common/http';
-
 
 
 @Component({
@@ -14,7 +12,7 @@ import {HttpClient} from '@angular/common/http';
 export class EditCourseComponent implements OnInit {
   public dataCourse;
   id: number;
-  private sub: any;
+  public editCourseItem: PageListData;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,11 +35,8 @@ export class EditCourseComponent implements OnInit {
     });
   }
 
-  saveCourseDate() {
-  }
+  saveCourseDate(id: number) {
 
-  public ngOnDestroy() {
-    this.sub.unsubscribe();
+    console.log(this.dataCourse);
   }
-
 }

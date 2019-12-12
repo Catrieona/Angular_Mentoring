@@ -8,31 +8,31 @@
             <label for="addCourse_title">Title: </label>
             <span class='addCourse_required'>*required</span>
         </div>
-        <input placeholder="Text input" id="addCourse_title" type="text" [value]=dataCourse.name>
+        <input placeholder="Text input" id="addCourse_title" type="text" [(ngModel)]=dataCourse.name>
 
         <div class="addCourse_description addCourse_input">
             <label for="addCourse_descript">Description: </label>
             <span class='addCourse_required'>*required</span>
         </div>
-        <textarea  placeholder="Add description" id="addCourse_descript" [value]=dataCourse.description> </textarea>
+        <textarea  placeholder="Add description" id="addCourse_descript" [(ngModel)]=dataCourse.description> </textarea>
 
         <div class="addCourse_duration addCourse_input">
             <label for="addCourse_duration">Duration: </label>
             <span class='addCourse_required'>*required</span>
         </div>
-        <input placeholder="minutes" id="addCourse_duration" type="text" [value]=dataCourse.length>
+        <input placeholder="minutes" id="addCourse_duration" type="text" [(ngModel)]=dataCourse.length>
 
         <div class="addCourse_date addCourse_input">
                 <label for="addCourse_date">Date: </label>
                 <span class='addCourse_required'>*required</span>
         </div>
-        <input id="addCourse_date" type="text" [value]=dataCourse.date>
+        <input id="addCourse_date" type="text" [(ngModel)]=dataCourse.date>
 
         <div class="addCourse_authors addCourse_input">
             <label for="addCourse_authors">Authors: </label>
             <span class='addCourse_required'>*required</span>
         </div>
-        <input id="addCourse_authors" type="text" [value]=dataCourse.authors[0].name>
+        <input id="addCourse_authors" type="text" [(ngModel)]=dataCourse.authors[0].name>
 
         <div class="addCourseButton">
             <button class="saveu_course_button" (click)=saveCourseDate()> Save </button>

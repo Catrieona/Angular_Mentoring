@@ -1,7 +1,8 @@
 import { Injectable, ChangeDetectorRef } from '@angular/core';
 import {PageListData} from '../models/page-list-data';
 import { HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, BehaviorSubject} from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -12,20 +13,21 @@ export class DataCourseService {
 public showConfirmMessage = false;
 public course: PageListData;
 public countPage = 5;
+public test;
 
+  courses$ = new BehaviorSubject<PageListData[]>([]);
 
   constructor(private httpClient: HttpClient) { }
 
   public getItemList() {
-    let query = 'http://localhost:3004/courses'
+    let query = 'http://localhost:3004/courses';
 
-    return this.httpClient.get<PageListData[]>(query, {params: {start: '0', count: '' + this.countPage}});
+    this.httpClient.get<PageListData[]>(query, {params: {start: '0', count: '' + this.countPage}})
+      .subscribe(response => this.courses$.next(response));
   }
 
   public removeItem(id: number) {
-
-  this.httpClient.delete(`http://localhost:3004/courses/${id}`);
-  this.getItemList();
+    return this.httpClient.delete(`http://localhost:3004/courses/${id}`);
   }
 
   public onLoadMoreCourses() {
@@ -35,6 +37,14 @@ public countPage = 5;
 
   public getCourseItem(id: number) {
     return this.httpClient.get(`http://localhost:3004/courses/${id}`);
+  }
+
+  public SearchCourseItem(value: string) {
+    return this.httpClient.get(`http://localhost:3004/courses/`)
+   .pipe(
+    filter(data => data[0].name == value)
+    )
+
   }
 
 }

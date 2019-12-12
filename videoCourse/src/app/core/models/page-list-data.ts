@@ -2,7 +2,7 @@ export interface PageListData {
     id: number;
     name: string;
     description: string;
-    duration: number;
+    length: number;
     date: Date;
     topRated: boolean;
 

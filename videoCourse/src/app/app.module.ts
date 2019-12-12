@@ -18,6 +18,7 @@ import { AddNewCourseComponent } from './shared/course-add-new/add-new-course.co
 import { EditCourseComponent } from './shared/course-edit/edit-course.component';
 import { NotFoundComponent } from './shared/not-found-component/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     LoginModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   exports: [CourseListItemComponent],

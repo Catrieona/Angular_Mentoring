@@ -15,7 +15,7 @@ export class CourseListItemComponent implements OnInit {
 
   public courseData;
   private id: number;
-  public dataCourse: any = [];
+  public dataCourse;
 
 constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient, private cdRef: ChangeDetectorRef
           ) {
@@ -27,6 +27,7 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
 
   public getDataCourse(): void {
   this.dataCourseService.getItemList()
+  this.dataCourseService.courses$
     .subscribe ((dataCourse: PageListData[]) => {
       this.dataCourse = dataCourse;
       this.cdRef.markForCheck();
@@ -35,8 +36,9 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
 
   public deleteCourseItem(id: number) {
     this.onDeleteCourseItem.emit(id);
-    this.getDataCourse();
   }
+
+
   public loadMoreCourses() {
   this.dataCourseService.onLoadMoreCourses();
   this. getDataCourse();

@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { DataCourseService } from '../../../core/services/data-course.service';
 
 @Component({
   selector: 'app-course-page-search',
@@ -8,10 +9,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 })
 export class CoursePageSearchComponent {
+  constructor (private dataCourseService: DataCourseService) {}
   public userInutValue: string;
-
+  
  public getUserValue(value: string) {
     this.userInutValue = value;
-    console.log(this.userInutValue);
-  }
+    this.dataCourseService.SearchCourseItem(this.userInutValue)
+    .subscribe(data => console.log(data));
+ }
 }
