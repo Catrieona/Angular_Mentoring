@@ -10,7 +10,6 @@ export class AutorizationService {
   constructor(private httpClient: HttpClient){ }
   public userLogin: boolean;
 
-
   public LoginUser() {
     return this.httpClient.get('http://localhost:3004/auth');
   }
