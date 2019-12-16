@@ -15,10 +15,10 @@ export class LogInPageComponent  {
 
 constructor(private autorizationService: AutorizationService) { }
 
- public onLoginUser() {
+ public onLoginUser(email, pass) {
 
-  this.autorizationService.LoginUser()
-  .subscribe((data) => console.log(data));
+  this.autorizationService.LoginUser(email, pass)
+  .subscribe(data => console.log(data));
   
   }
 }
