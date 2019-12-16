@@ -9,16 +9,24 @@ import {UserData} from '../../core/models/user-data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogInPageComponent  {
-  public correctLogin: boolean;
+
   public routerLogin: string;
   user: UserData;
+  userToken;
 
 constructor(private autorizationService: AutorizationService) { }
 
- public onLoginUser(email, pass) {
+  public onLoginUser(email, pass) {
 
-  this.autorizationService.LoginUser(email, pass)
-  .subscribe(data => console.log(data));
-  
+    this.autorizationService.LoginUser(email, pass)
+    .subscribe(data => {this.userToken = data; this.onUserInfoRequest()});
+    // .subscribe(data => {this.userToken = data; this.routerLogin=""});
+
+  }
+
+  public onUserInfoRequest () {
+    if(this.userToken) {
+      this.routerLogin = "";
+    }
   }
 }
