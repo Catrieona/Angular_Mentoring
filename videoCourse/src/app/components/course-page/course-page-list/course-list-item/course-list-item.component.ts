@@ -2,11 +2,33 @@ import { Component, Output, Input, EventEmitter, OnInit, ChangeDetectorRef, Chan
 import { DataCourseService } from '../../../../core/services/data-course.service';
 import { PageListData } from '../../../../core/models/page-list-data';
 import {HttpClient} from '@angular/common/http';
+import {
+  trigger,
+  stagger,
+  query,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-course-list-item',
   templateUrl: './course-list-item.component.html',
   styleUrls: ['./course-list-item.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      transition('* <=> *', [
+        query(':enter', [
+          style({ opacity: 0, width: '0px' }),
+          stagger(200, [
+            animate('300ms ease-out', style({ opacity: 1, width: '*' })),
+          ]),
+        ], { optional: true })
+      ])
+    ]),
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseListItemComponent implements OnInit {

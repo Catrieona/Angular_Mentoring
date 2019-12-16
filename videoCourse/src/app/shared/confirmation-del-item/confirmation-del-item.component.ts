@@ -13,8 +13,7 @@ export class ConfirmationDelItemComponent {
 
   public deliteItem() {
     this.dataCourseService.removeItem(this.itemDelId)
-    .subscribe()
-    this.dataCourseService.getItemList();
+    .subscribe(() => this.dataCourseService.getItemList());
     this.dataCourseService.showConfirmMessage = false;
   }
 
