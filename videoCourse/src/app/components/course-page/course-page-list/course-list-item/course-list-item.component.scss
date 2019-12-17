@@ -80,10 +80,19 @@
     }
 }
 
-.course-item-loadMoreButton {
+.course-item-loadMoreSection {
     position: relative;
-    widows: 300px;
-    height: 50px;
-    margin: 0 auto;
-    cursor: pointer;
+    width: 90%;
+    height: 70px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 5px;
+    .course-items_button {
+        cursor: pointer;
+        margin: 30px auto;
+        align-items: c;
+        font-size: 20px;
+        text-decoration: underline;
+        color: rgb(5, 49, 63);
+    }
 }
