@@ -12,7 +12,6 @@ export class DataCourseService {
 public showConfirmMessage = false;
 public course: PageListData;
 public countPage = 5;
-public test;
 
   courses$ = new BehaviorSubject<PageListData[]>([]);
 
@@ -43,5 +42,12 @@ public test;
     this.httpClient.get<PageListData[]>(query, {params: {textFragment: value}})
    .subscribe(response => this.courses$.next(response));
   }
+
+  public editCourseItem (id, courseModer) {
+    return this.httpClient.patch(`http://localhost:3004/courses/${id}`, courseModer);
+  }
+
+  public saveNewItem (newCourseItem) {
+    return this.httpClient.post('http://localhost:3004/courses', newCourseItem );  }
 }
 

@@ -8,25 +8,25 @@
             <label for="addCourse_title">Title: </label>
             <span class='addCourse_required'>*required</span>
         </div>
-        <input placeholder="Text input" id="addCourse_title" type="text">
+        <input placeholder="Text input" id="addCourse_title" type="text"  [(ngModel)]=this.newCourseItem.name>
 
         <div class="addCourse_description addCourse_input">
             <label for="addCourse_descript">Description: </label>
             <span class='addCourse_required'>*required</span>
         </div>
-        <textarea  placeholder="Add description" id="addCourse_descript"> </textarea>
+        <textarea  placeholder="Add description" id="addCourse_descript" [(ngModel)]=this.newCourseItem.description> </textarea>
 
         <div class="addCourse_duration addCourse_input">
             <label for="addCourse_duration">Duration: </label>
             <span class='addCourse_required'>*required</span>
         </div>
-        <input placeholder="minutes" id="addCourse_duration" type="text">
+        <input placeholder="minutes" id="addCourse_duration" type="text" [(ngModel)]=this.newCourseItem.length>
 
         <div class="addCourse_date addCourse_input">
                 <label for="addCourse_date">Date: </label>
                 <span class='addCourse_required'>*required</span>
         </div>
-        <input placeholder="mm-dd-yyyy" id="addCourse_date" type="text">
+        <input placeholder="mm-dd-yyyy" id="addCourse_date" type="text" [(ngModel)]=this.newCourseItem.date>
 
         <div class="addCourse_authors addCourse_input">
             <label for="addCourse_authors">Authors: </label>
@@ -35,7 +35,7 @@
         <input placeholder="start typing" id="addCourse_authors" type="text">
 
         <div class="addCourseButton">
-            <button class="saveu_course_button">Save</button>
+            <button class="saveu_course_button" (click)="addNewCourseItem()">Save</button>
             <button routerLink="" class="cansel_course_button">Cansel</button>
         </div>
     </div>

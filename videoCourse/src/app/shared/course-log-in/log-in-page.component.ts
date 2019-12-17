@@ -16,17 +16,15 @@ export class LogInPageComponent  {
 
 constructor(private autorizationService: AutorizationService) { }
 
-  public onLoginUser(email, pass) {
+  public checkUserInfo(email, pass) {
 
-    this.autorizationService.LoginUser(email, pass)
-    .subscribe(data => {this.userToken = data; this.onUserInfoRequest()});
-    // .subscribe(data => {this.userToken = data; this.routerLogin=""});
-
+    this.autorizationService.loginUser(email, pass)
+    .subscribe(data => {this.userToken = data; this.getUserAccess()});
   }
 
-  public onUserInfoRequest () {
-    if(this.userToken) {
-      this.routerLogin = "";
+  public getUserAccess() {
+    if (this.userToken) {
+      this.routerLogin = '';
     }
   }
 }

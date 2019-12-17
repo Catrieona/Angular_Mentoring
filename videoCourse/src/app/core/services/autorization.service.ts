@@ -11,11 +11,7 @@ export class AutorizationService {
   public userLogin: boolean;
 
 
-  public LoginUser(login, password) {
+  public loginUser(login, password) {
     return this.httpClient.post('http://localhost:3004/auth/login', {login, password} );
   }
-
-  // public getUser (token) {
-  //   return this.httpClient.post('http://localhost:3004/auth/userinfo', {token} );
-  // }
 }

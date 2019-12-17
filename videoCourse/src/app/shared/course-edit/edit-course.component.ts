@@ -11,7 +11,7 @@ import { DataCourseService } from '../../core/services/data-course.service';
 })
 export class EditCourseComponent implements OnInit {
   public dataCourse;
-  id: number;
+  public id: number;
   public editCourseItem: PageListData;
 
   constructor(
@@ -31,12 +31,11 @@ export class EditCourseComponent implements OnInit {
     .subscribe ((dataCourse: PageListData[]) => {
       this.dataCourse = dataCourse;
       this.cdRef.markForCheck();
-      console.log(this.dataCourse);
     });
   }
 
-  saveCourseDate(id: number) {
-
-    console.log(this.dataCourse);
+  editCourseDate() {
+    this.dataCourseService.editCourseItem(this.id, this.dataCourse)
+    .subscribe(() => this.dataCourseService.getItemList());
   }
 }
