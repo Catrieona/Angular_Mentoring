@@ -17,7 +17,7 @@ public countPage = 5;
 
   constructor(private httpClient: HttpClient) { }
 
-  public getItemList() {
+  public getItemList(): void {
     let query = 'http://localhost:3004/courses';
 
     this.httpClient.get<PageListData[]>(query, {params: {start: '0', count: '' + this.countPage}})
@@ -47,7 +47,7 @@ public countPage = 5;
     return this.httpClient.patch(`http://localhost:3004/courses/${id}`, courseModer);
   }
 
-  public saveNewItem (newCourseItem) {
+  public saveNewItem (newCourseItem: PageListData) {
     return this.httpClient.post('http://localhost:3004/courses', newCourseItem );  }
 }
 

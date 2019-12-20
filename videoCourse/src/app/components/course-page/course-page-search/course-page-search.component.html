@@ -1,8 +1,8 @@
 <section class="course-page-serchBlock">
     <div class="section_wrapper">
         <form class="course-page-form"> 
-            <input #userValue class="course-page-search" type="text" placeholder="Text to search">
-            <input (click)="getUserValue(userValue.value)" class="course-page-search-button" type="button" value="Search"> 
+            <input #userValue id="course-search" class="course-page-search" (input)="inputValue$.next(userValue.value)" type="text" placeholder="Text to search">
+            <!-- <input (click)="getUserValue(userValue.value)" class="course-page-search-button" type="button" value="Search">  -->
         </form>
         <button class="curse-add-button">
             <i class="fas fa-plus"></i>

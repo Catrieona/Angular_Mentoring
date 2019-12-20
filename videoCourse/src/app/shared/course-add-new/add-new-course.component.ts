@@ -12,30 +12,30 @@ export class AddNewCourseComponent {
     ) {}
   public courseId;
 
-  public newCourseItem: PageListData =
-    {
-      id: this.courseId,
-      name: 'name',
-      date: 'date',
-      istopRated: false,
-      description: 'description',
-      authors: [{
-          id: 0,
-          name: 'name',
-          lastName: 'lastname'
-      }],
-      length: 0,
-  };
+  public newCourseItem: Partial<PageListData> = {};
+  //   {
+  //     id: this.courseId,
+  //     name: 'name',
+  //     date: 'date',
+  //     istopRated: false,
+  //     description: 'description',
+  //     authors: [{
+  //         id: 0,
+  //         name: 'name',
+  //         lastName: 'lastname'
+  //     }],
+  //     length: 0,
+  // };
 
   public addNewCourseItem() {
-    this.getCourseId(100, 500);
-    this.dataCourseService.saveNewItem(this.newCourseItem)
+    // this.getCourseId(100, 500);
+    this.dataCourseService.saveNewItem(this.newCourseItem as PageListData)
     .subscribe(data => console.log(data));
   }
 
-  public getCourseId(min, max) {
-    let rand = min - 0.5 + Math.random() * (max - min + 1);
-    return this.courseId = Math.round(rand);
-  }
+  // public getCourseId(min, max) {
+  //   let rand = min - 0.5 + Math.random() * (max - min + 1);
+  //   return this.courseId = Math.round(rand);
+  // }
 
 }
