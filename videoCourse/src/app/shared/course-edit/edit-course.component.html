@@ -1,41 +1,50 @@
-<section class="addCourseForm">
-    <div class='addCourseWrapper'>
-        <div class="addCourse_header">
+<section class="editCourseForm">
+    <div class='editCourseWrapper'>
+        <div class="editCourse_header">
             <h2>Edit Course </h2> 
         </div>
 
-        <div class="addCourse_title addCourse_input">
-            <label for="addCourse_title">Title: </label>
-            <span class='addCourse_required'>*required</span>
+        <div class="editCourse_title editCourse_input">
+            <label for="editCourse_title">Title: </label>
+            <span class='editCourse_required'>*required</span>
         </div>
-        <input placeholder="Text input" id="addCourse_title" type="text" [value]=course.title>
+        <input placeholder="Text input" id="editCourse_title" type="text" [(ngModel)]=dataCourse.name>
 
-        <div class="addCourse_description addCourse_input">
-            <label for="addCourse_descript">Description: </label>
-            <span class='addCourse_required'>*required</span>
+        <div class="editCourse_description editCourse_input">
+            <label for="editCourse_descript">Description: </label>
+            <span class='editCourse_required'>*required</span>
         </div>
-        <textarea  placeholder="Add description" id="addCourse_descript" [value]=course.description> </textarea>
+        <textarea  placeholder="Add description" id="editCourse_descript" [(ngModel)]=dataCourse.description> </textarea>
 
-        <div class="addCourse_duration addCourse_input">
-            <label for="addCourse_duration">Duration: </label>
-            <span class='addCourse_required'>*required</span>
+        <div class="editCourse_duration editCourse_input">
+            <label for="editCourse_duration">Duration: </label>
+            <span class='editCourse_required'>*required</span>
         </div>
-        <input placeholder="minutes" id="addCourse_duration" type="text" [value]=course.duration>
 
-        <div class="addCourse_date addCourse_input">
-                <label for="addCourse_date">Date: </label>
-                <span class='addCourse_required'>*required</span>
+        <div class="editCourse_duration_wrapper">
+            <input class="editCourse_duration_input" placeholder="minutes" id="editCourse_duration" type="text" [(ngModel)]=dataCourse.length>
+            <div class="editCourse_duration_formated">{{dataCourse.length | courseDuration}}</div>
         </div>
-        <input id="addCourse_date" type="text" [value]=course.date>
 
-        <div class="addCourse_authors addCourse_input">
-            <label for="addCourse_authors">Authors: </label>
-            <span class='addCourse_required'>*required</span>
+        <div class="editCourse_date editCourse_input">
+                <label for="editCourse_date">Date: </label>
+                <span class='editCourse_required'>*required</span>
         </div>
-        <input id="addCourse_authors" type="text">
+        <input id="editCourse_date" type="text" [(ngModel)]=dataCourse.date>
 
-        <div class="addCourseButton">
-            <button class="saveu_course_button" (click)=saveCourseDate()> Save </button>
+        <div class="editCourse_authors editCourse_input">
+            <label for="editCourse_authors">Authors: </label>
+            <span class='editCourse_required'>*required</span>
+        </div>
+        <div class="editCourse_authors_wrapper" id="editCourse_authors"> 
+            <div class="editCourse_authors_name" *ngFor="let item of dataCourse.authors">
+                {{item.name}} {{item.lastName}} 
+                <div class="editCourse_authors_delete"> ╳</div>
+            </div>
+        </div>
+
+        <div class="editCourseButton">
+            <button class="saveu_course_button" (click)=editCourseDate() routerLink=""> Save </button>
             <button class="cansel_course_button" routerLink="">  Cancel  </button>
         </div>
     </div>

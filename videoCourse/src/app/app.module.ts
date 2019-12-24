@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {Router} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,8 @@ import { LoginModule } from './shared/course-log-in/login.module';
 import { AddNewCourseComponent } from './shared/course-add-new/add-new-course.component';
 import { EditCourseComponent } from './shared/course-edit/edit-course.component';
 import { NotFoundComponent } from './shared/not-found-component/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,9 +39,13 @@ import { NotFoundComponent } from './shared/not-found-component/not-found.compon
     NotFoundComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
+
     LoginModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   exports: [CourseListItemComponent],

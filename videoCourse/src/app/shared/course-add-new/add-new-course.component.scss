@@ -10,10 +10,10 @@
 }
 
 .addCourseForm {
-    position: absolute;
-    top: 10%;
-    left: 20%;
-    width: 60%;
+    position: fixed;
+    top: 20%;
+    left: 35%;
+    min-width: 600px;
     height: 60%;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -21,8 +21,15 @@
     .addCourseWrapper {
         margin: 5% auto;
         width: 90%;
-        
-        .addCourse_input {
+
+        .addCourse_duration_wrapper {
+            display: flex;
+            .addCourse_duration_formated {
+                padding: 10px;
+                font-size: 13px;
+            }
+        }
+         .addCourse_input {
             margin: 10px;
             display: flex;
             justify-content: space-between;
@@ -37,7 +44,7 @@
             letter-spacing: 0.19px;
             color: rgb(165, 164, 164);
         }
-        .addCourse_input+input, .addCourse_input+textarea {
+        .addCourse_input+input, .addCourse_input+textarea, .addCourse_duration_input, .addCourse_authors_wrapper {
             padding: 10px;
             width: 40%;
             border-radius: 3px;
@@ -51,12 +58,14 @@
         #addCourse_title, #addCourse_descript, .addCourse_description, .addCourse_title{
             width: 100%
         }
-        .addCourseButton {
+
+        .addCourse_Buttons_Wrapper {
             margin: 15px;
-            position: absolute;
+            display: flex;
             right: 0;
+            justify-content: flex-end;
         }
-        .addCourseButton button {
+        .addCourse_Buttons_Wrapper button {
             width: 80px;
             height: 40px;
             border: none;

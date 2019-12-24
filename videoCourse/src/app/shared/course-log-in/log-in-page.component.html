@@ -10,14 +10,14 @@
         </div>
         <input #usermail placeholder="Enter e-mail" id="user_mail" type="email">
         <div class="userLogin_password">
-            <label for="user_password">E-mail </label>
+            <label for="user_password">Password </label>
             <span>*required</span>
             </div>
         <input #userpass placeholder="Enter password" id="user_password" type="text">
 
         <div class="userLogin_footer" >
             <a href="#">Forgot password? </a>
-            <button (click)="onLoginUser(usermail.value, userpass.value)" class="userLogin_button" [routerLink]=routerLogin > Login </button>
+            <button (click)="checkUserInfo(usermail.value, userpass.value)" class="userLogin_button" [routerLink]=routerLogin > Login </button>
         </div>
     </div>
 </section>

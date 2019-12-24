@@ -1,4 +1,10 @@
 export interface UserData {
-    userEmail: string;
+    id: number;
+    fakeToken: string;
+    name: {
+        first: string;
+        last: string;
+      },
+    login: string;
     password: string;
 }

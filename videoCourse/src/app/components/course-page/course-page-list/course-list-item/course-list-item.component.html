@@ -1,29 +1,38 @@
-<section *ngFor="let item of courseData" class="course-items">
-    <div [class.topRatedcourse]="item.topRated" appItemBorderStyle [creationDate]=item.date class="section_wrapper">
-        <div class="course-item-inform"> 
-            <h2 class="course-item-inform-header" >Video Course 1. {{item.title | uppercase }} <i *ngIf="item.topRated" class="fas fa-star"></i> </h2>
-            <p class="course-item-inform-text"> {{item.description}}</p>
-            <div class="course-item-timeline"> 
-                <div class="course-item-timeline-duration">
-                    <i class="far fa-clock"></i>
-                    {{item.duration | courseDuration}}
-                </div>
-                <div class="course-item-timeline-calendar">
-                    <i class="far fa-calendar-alt"></i>
-                    {{item.date | date }}
+<div [@fadeIn]="dataCourse?.length">
+    <section *ngFor="let item of dataCourse" class="course-items" >
+        <div [class.topRatedcourse]="item.topRated" appItemBorderStyle [creationDate]=item.date class="section_wrapper">
+            <div class="course-item-inform"> 
+                <h2 class="course-item-inform-header" >Video Course {{item.name | uppercase }} <i *ngIf="item.isTopRated" class="fas fa-star"></i> </h2>
+                <p class="course-item-inform-text"> {{item.description}}</p>
+                <div class="course-item-timeline"> 
+                    <div class="course-item-timeline-duration">
+                        <i class="far fa-clock"></i>
+                        {{item.length | courseDuration}}
+                    </div>
+                    <div class="course-item-timeline-calendar">
+                        <i class="far fa-calendar-alt"></i>
+                        {{item.date | date }}
+                    </div>
                 </div>
             </div>
+            
+            <div class="course-item-editBlock"> 
+                <button [routerLink]="['edit/', item.id]" class="course-item-edit">
+                    <i class="fas fa-pencil-alt"></i>
+                    Edit 
+                </button>
+                <button (click)="deleteCourseItem(item.id)" class="course-item-delete">
+                    <i class="fas fa-trash"></i>
+                    <div> Delete </div>
+                </button>
+            </div>
         </div>
-        
-        <div class="course-item-editBlock"> 
-            <button [routerLink]="['edit/', item.id]" class="course-item-edit">
-                <i class="fas fa-pencil-alt"></i>
-                Edit 
-            </button>
-            <button (click)="deleteCourseItem(item.id)" class="course-item-delete">
-                <i class="fas fa-trash"></i>
-                <div> Delete </div>
-            </button>
+    </section>
+    <section  class="course-items" >
+        <div (click)="loadMoreCourses()" class="course-item-loadMoreSection">
+             <p class="course-items_button"> Load More...</p>
         </div>
-    </div>
-</section>
+    </section>
+
+</div>
+

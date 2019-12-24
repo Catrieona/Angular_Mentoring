@@ -54,10 +54,6 @@ describe('CourseListItemComponent', () => {
 
   it('should have course date', () => {
     fixture.detectChanges();
-<<<<<<< HEAD
-    expect(spy).toHaveBeenCalled();
-  });
-=======
     debugElement
     .query(By.css('.course-itme-timeline-calendar'))
     const div = debugElement.nativeElement;
@@ -82,6 +78,5 @@ describe('CourseListItemComponent', () => {
     expect(onDeleteCourseItem).toBe(1);
   });
 
->>>>>>> directivePipe
 
 });

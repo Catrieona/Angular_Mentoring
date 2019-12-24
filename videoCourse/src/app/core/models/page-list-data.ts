@@ -1,9 +1,13 @@
 export interface PageListData {
     id: number;
-    title: string;
+    name: string;
     description: string;
-    duration: number;
-    date: Date;
-    topRated: boolean;
-
+    istopRated: boolean;
+    date: string;
+    authors?: [{
+      id: number;
+      name: string;
+      lastName: string;
+    }],
+    length: number;
 }
