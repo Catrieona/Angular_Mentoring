@@ -12,9 +12,9 @@ export class CounterComponent {
 
   count$: Observable<number>;
 
-  constructor(private store: Store<{count:number}>) {
+constructor(private store: Store<{count:number}>) {
     this.count$ = store.pipe(select("count"))
-   }
+  }
 
   increment () {
 this.store.dispatch(increment());
