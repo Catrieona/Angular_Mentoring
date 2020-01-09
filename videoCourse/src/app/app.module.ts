@@ -20,6 +20,8 @@ import { EditCourseComponent } from './shared/course-edit/edit-course.component'
 import { NotFoundComponent } from './shared/not-found-component/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthUserEffect } from './store/effects/auth.effect';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-
+    EffectsModule.forFeature([AuthUserEffect]),
     LoginModule,
     AppRoutingModule,
     FormsModule,
