@@ -1,27 +1,24 @@
-import { Action } from "@ngrx/store";
-import { User } from "../../core/models/uses";
-
-export enum UserActions {
-  GetUser = "[User] Get User",
-  GetUsers  = "[User] Get Users",
-  GetUserSucces  = "[User] Get User Succes",
-  GetUsersSucces = "[User] Get Users Succes"
+import { createReducer, on } from '@ngrx/store';
+import { loginUser, loginUserSucces } from '../actions/auth.actions';
+import { UserData } from "../../core/models/user-data"
+ 
+export const initialState: UserData = {
+  id: null,
+  fakeToken: null,
+  name: {
+      first: null,
+      last: null,
+    },
+  login: null,
+  password: null,
+};
+ 
+const _counterReducer = createReducer(initialState,
+  on(loginUser, state => state + 1),
+  on(loginUserSucces, state => {if (this.userToken.id) {
+     this.router.navigateByUrl('/courses')}})
+ );
+ 
+export function counterReducer(state, action) {
+  return _counterReducer(state, action);
 }
-
-export class GetUsers implements Action {
-  public readonly type = UserActions.GetUsers;
-}
-
-export class GetUser implements Action {
-  public readonly type = UserActions.GetUser;
-}
-
-export class GetUserSucces implements Action {
-  public readonly type = UserActions.GetUserSucces;
-}
-
-export class GetUsersSucces implements Action {
-  public readonly type = UserActions.GetUsersSucces;
-}
-
-export type IUserActions = GetUser|GetUsers|GetUserSucces|GetUsersSucces

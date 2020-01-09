@@ -10,11 +10,11 @@ import { AutorizationService } from '../../core/services/autorization.service';
  
 @Injectable()
 export class AuthEffects {
-  loadMovies$ = createEffect(() => this.actions$.pipe(
+  AuthUser$ = createEffect(() => this.actions$.pipe(
     ofType('[Auth] Login User'),
-    mergeMap(() => this.moviesService.loginUser({email, password})
+    mergeMap(() => this.autorizationService.loginUser(email, password)
       .pipe(
-        map(user => ({ type: '[Auth] Login User Succes', payload: user })),
+        map(userToken => ({ type: '[Auth] Login User Succes', payload: userToken })),
         catchError(() => EMPTY)
       ))
     )
@@ -22,6 +22,6 @@ export class AuthEffects {
  
   constructor(
     private actions$: Actions,
-    private moviesService: AutorizationService
+    private autorizationService: AutorizationService
   ) {}
 }

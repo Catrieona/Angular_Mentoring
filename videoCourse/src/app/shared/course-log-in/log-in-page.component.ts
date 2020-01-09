@@ -4,7 +4,7 @@ import {UserData} from '../../core/models/user-data';
 import { Router} from '@angular/router';
 import { of, Subscription } from 'rxjs';
 import { Observable } from 'rxjs';
-import { Store } from "@ngrx/store";
+import { Store, select } from '@ngrx/store';
 import { loginUser } from "../../store/actions/auth.actions";
 
 
@@ -16,16 +16,18 @@ import { loginUser } from "../../store/actions/auth.actions";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogInPageComponent  {
-
+  public userToken$: Observable<any>
   public routerLogin: string;
   user: UserData;
-  public userToken$: Observable<any> = this.store.select(state => state.userToken);
+  
 
-constructor(private autorizationService: AutorizationService,
-            private router: Router,
-            private store: Store<any>
-  ) { }
-
+// constructor(private autorizationService: AutorizationService,
+//             private router: Router,
+//             private store: Store<any>
+//   ) { }
+  constructor(private store: Store<{userToken: any }>) {
+    this.userToken$ = store.pipe(select('userToken'));
+  }
  
   public checkUserInfo(email, password) {
 
@@ -40,3 +42,4 @@ constructor(private autorizationService: AutorizationService,
     // });
   }
 }
+
