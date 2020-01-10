@@ -2,8 +2,10 @@ import { Component, Output, Input, EventEmitter, OnInit, ChangeDetectorRef, Chan
 import { DataCourseService } from '../../../../core/services/data-course.service';
 import { PageListData } from '../../../../core/models/page-list-data';
 import {HttpClient} from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs';
-import { auditTime, startWith, filter, tap, debounceTime } from 'rxjs/operators';
+import { Store, select } from '@ngrx/store';
+// import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs';
+// import { auditTime, startWith, filter, tap, debounceTime } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import {
   trigger,
   stagger,
@@ -37,31 +39,33 @@ export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
 
-  public courseData;
-  private id: number;
-  public dataCourse;
+  // public courseData;
+  // private id: number;
+  // public dataCourse;
 
-constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient, private cdRef: ChangeDetectorRef,
-          ) {
-  }
+  dataCourse$: Observable<PageListData[]> = this.store.select (state => state.courses);
+
+constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient,
+  private store: Store<{ courses: PageListData[]}>
+          ) {}
   
   ngOnInit() {
-    this.getDataCourse();
-
+    // this.getDataCourse();
+    this.store.dispatch({ type: '[Course Page] Load Courses' });
   }
 
-  public getDataCourse(): void {
-  this.dataCourseService.getItemList()
-  this.dataCourseService.courses$
-    .subscribe ((dataCourse: PageListData[]) => {
-      this.dataCourse = dataCourse;
-      this.cdRef.markForCheck();
-    });
-  }
+  // public getDataCourse(): void {
+  // this.dataCourseService.getItemList()
+  // this.dataCourseService.courses$
+  //   .subscribe ((dataCourse: PageListData[]) => {
+  //     this.dataCourse = dataCourse;
+  //     this.cdRef.markForCheck();
+  //   });
+  // }
 
   public deleteCourseItem(id: number) {
     this.onDeleteCourseItem.emit(id);
-    this.getDataCourse();
+    // this.getDataCourse();
   }
 
   public loadMoreCourses() {

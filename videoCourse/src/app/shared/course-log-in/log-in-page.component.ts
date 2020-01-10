@@ -1,13 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { AutorizationService } from '../../core/services/autorization.service';
-import {UserData} from '../../core/models/user-data';
-import { Router} from '@angular/router';
-import { of, Subscription } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { loginUser } from "../../store/actions/auth.actions";
-
-
+import { loginUser } from '../../store/actions/auth.actions';
 
 @Component({
   selector: 'app-log-in-page',
@@ -16,30 +10,13 @@ import { loginUser } from "../../store/actions/auth.actions";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogInPageComponent  {
-  public userToken$: Observable<any>
-  public routerLogin: string;
-  user: UserData;
-  
+  public userToken$: Observable<any>;
 
-// constructor(private autorizationService: AutorizationService,
-//             private router: Router,
-//             private store: Store<any>
-//   ) { }
-  constructor(private store: Store<{userToken: any }>) {
-    this.userToken$ = store.pipe(select('userToken'));
+  constructor(private store: Store<any>) {
+    this.userToken$ = store.pipe(select('auth', 'userToken'));
   }
- 
   public checkUserInfo(email, password) {
-
     this.store.dispatch(loginUser({email, password}));
-
-    // this.autorizationService.loginUser(email, pass)
-    // .subscribe(data => {
-    //   this.userToken = data;
-    //   if (this.userToken) {
-    //   this.router.navigateByUrl('/courses');
-    //   }
-    // });
   }
 }
 

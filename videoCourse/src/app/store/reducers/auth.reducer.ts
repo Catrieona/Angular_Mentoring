@@ -1,24 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
-import { loginUser, loginUserSucces } from '../actions/auth.actions';
-import { UserData } from "../../core/models/user-data"
- 
-export const initialState: UserData = {
-  id: null,
-  fakeToken: null,
-  name: {
-      first: null,
-      last: null,
-    },
-  login: null,
-  password: null,
+import { loginUserSucces } from '../actions/auth.actions';
+
+export interface AuthState {
+  token: string;
+}
+
+export const initialState: AuthState = {
+  token: null,
 };
- 
-const _counterReducer = createReducer(initialState,
-  on(loginUser, state => state + 1),
-  on(loginUserSucces, state => {if (this.userToken.id) {
-     this.router.navigateByUrl('/courses')}})
+
+const _authReducer = createReducer(initialState,
+  on(loginUserSucces, (state, {token}) => {
+    return {
+      ...state,
+      token,
+    };
+  })
  );
- 
-export function counterReducer(state, action) {
-  return _counterReducer(state, action);
+
+export function authReducer(state, action) {
+  console.log('auth', state, action);
+  return _authReducer(state, action);
 }

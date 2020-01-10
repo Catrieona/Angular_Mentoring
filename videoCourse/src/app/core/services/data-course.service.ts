@@ -17,11 +17,11 @@ public countPage = 5;
 
   constructor(private httpClient: HttpClient) { }
 
-  public getItemList(): void {
+  public getItemList() {
     let query = 'http://localhost:3004/courses';
 
-    this.httpClient.get<PageListData[]>(query, {params: {start: '0', count: '' + this.countPage}})
-      .subscribe(response => this.courses$.next(response));
+    return this.httpClient.get<PageListData[]>(query, {params: {start: '0', count: '' + this.countPage}})
+      // .subscribe(response => this.courses$.next(response));
   }
 
   public removeItem(id: number) {
