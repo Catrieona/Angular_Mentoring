@@ -1,6 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AutorizationService } from '../../core/services/autorization.service';
 import {UserData} from '../../core/models/user-data';
+import { Router} from '@angular/router';
+import { of, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-log-in-page',
@@ -14,17 +18,18 @@ export class LogInPageComponent  {
   user: UserData;
   userToken;
 
-constructor(private autorizationService: AutorizationService) { }
+constructor(private autorizationService: AutorizationService,
+            private router: Router
+  ) { }
 
   public checkUserInfo(email, pass) {
 
     this.autorizationService.loginUser(email, pass)
-    .subscribe(data => {this.userToken = data; this.getUserAccess()});
-  }
-
-  public getUserAccess() {
-    if (this.userToken) {
-      this.routerLogin = '';
-    }
+    .subscribe(data => {
+      this.userToken = data;
+      if (this.userToken) {
+      this.router.navigateByUrl('/courses');
+      }
+    });
   }
 }

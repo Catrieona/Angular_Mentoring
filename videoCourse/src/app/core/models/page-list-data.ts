@@ -10,4 +10,5 @@ export interface PageListData {
       lastName: string;
     }],
     length: number;
+    isLoading?: boolean;
 }

@@ -2,6 +2,8 @@ import { Component, Output, Input, EventEmitter, OnInit, ChangeDetectorRef, Chan
 import { DataCourseService } from '../../../../core/services/data-course.service';
 import { PageListData } from '../../../../core/models/page-list-data';
 import {HttpClient} from '@angular/common/http';
+import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs';
+import { auditTime, startWith, filter, tap, debounceTime } from 'rxjs/operators';
 import {
   trigger,
   stagger,
@@ -39,12 +41,13 @@ export class CourseListItemComponent implements OnInit {
   private id: number;
   public dataCourse;
 
-constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient, private cdRef: ChangeDetectorRef
+constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient, private cdRef: ChangeDetectorRef,
           ) {
   }
-
+  
   ngOnInit() {
     this.getDataCourse();
+
   }
 
   public getDataCourse(): void {
@@ -61,10 +64,11 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
     this.getDataCourse();
   }
 
-
   public loadMoreCourses() {
   this.dataCourseService.onLoadMoreCourses();
   }
 
-
+  public trackById(idx, item) {
+      return item.id;
+  }
 }

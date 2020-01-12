@@ -1,5 +1,5 @@
 <div [@fadeIn]="dataCourse?.length">
-    <section *ngFor="let item of dataCourse" class="course-items" >
+    <section *ngFor="let item of dataCourse; trackBy: trackById" class="course-items" >
         <div [class.topRatedcourse]="item.topRated" appItemBorderStyle [creationDate]=item.date class="section_wrapper">
             <div class="course-item-inform"> 
                 <h2 class="course-item-inform-header" >Video Course {{item.name | uppercase }} <i *ngIf="item.isTopRated" class="fas fa-star"></i> </h2>
@@ -33,6 +33,5 @@
              <p class="course-items_button"> Load More...</p>
         </div>
     </section>
-
 </div>
 
