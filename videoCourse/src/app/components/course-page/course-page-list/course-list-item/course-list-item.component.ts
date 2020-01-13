@@ -16,7 +16,8 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-
+import {selectCourses } from "../../../../store/reducers/courses.reducer";
+import { deleteCourse } from "../../../../store/actions/loadCourse.action"
 @Component({
   selector: 'app-course-list-item',
   templateUrl: './course-list-item.component.html',
@@ -39,14 +40,14 @@ export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
 
-  // public courseData;
-  // private id: number;
-  // public dataCourse;
+  public courseData;
+  private id: number;
+  public dataCourse;
 
-  dataCourse$: Observable<PageListData[]> = this.store.select (state => state.courses);
+  dataCourse$: Observable<PageListData[]> = this.store.select (selectCourses);
 
 constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient,
-  private store: Store<{ courses: PageListData[]}>
+  private store: Store<any>
           ) {}
   
   ngOnInit() {
@@ -63,13 +64,17 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
   //   });
   // }
 
-  public deleteCourseItem(id: number) {
-    this.onDeleteCourseItem.emit(id);
+  public deleteCourseItem(id) {
+    // this.onDeleteCourseItem.emit(id);
+    // this.store.dispatch({ type: '[Course Page] Load More Courses' });
+    this.store.dispatch(deleteCourse(id));
+
     // this.getDataCourse();
   }
 
   public loadMoreCourses() {
-  this.dataCourseService.onLoadMoreCourses();
+  // this.dataCourseService.onLoadMoreCourses();
+  this.store.dispatch({ type: '[Course Page] Load More Courses' });
   }
 
   public trackById(idx, item) {

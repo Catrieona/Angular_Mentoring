@@ -10,23 +10,17 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class LoadCourses {
-  loadCourses$ = createEffect(() =>
+export class DeleteCourse {
+  deleteCourses$ = createEffect(() =>
     this.actions$.pipe(
-      ofType('[Course Page] Load Courses'),
-      mergeMap(() => this.dataCourseService.getItemList()
+      ofType('[Course Page] Delete Course'),
+      mergeMap((id) => this.dataCourseService.removeItem(id)
       .pipe(
         map(courses => loadCoursesSucces({courses} )),
         catchError(() => EMPTY)
       )
       )
-      // ofType('[Course Page] Load More Courses'),
-      // mergeMap(() => this.dataCourseService.onLoadMoreCourses()
-      // .pipe(
-      //   map(courses => loadCoursesSucces({courses} )),
-      //   catchError(() => EMPTY)
-      // )
-      // )
+     
 
     )
   );

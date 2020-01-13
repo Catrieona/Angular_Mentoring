@@ -28,6 +28,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
 import { LoadCourses  } from './store/effects/load.course.effect';
+import { LoadMoreCourses  } from './store/effects/load.morecourse.effect';
+import { DeleteCourse  } from './store/effects/delete.course.effect copy';
+
 
 
 @NgModule({
@@ -54,7 +57,8 @@ import { LoadCourses  } from './store/effects/load.course.effect';
     LoginModule,
     AppRoutingModule,
     FormsModule,
-    EffectsModule.forRoot([AuthEffects, LoadCourses]),
+
+    EffectsModule.forRoot([AuthEffects, LoadCourses, LoadMoreCourses, DeleteCourse]),
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -64,7 +68,7 @@ import { LoadCourses  } from './store/effects/load.course.effect';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  providers: [],
+  providers: [LoadCourses, LoadMoreCourses, DeleteCourse],
   exports: [CourseListItemComponent],
   bootstrap: [AppComponent]
 })

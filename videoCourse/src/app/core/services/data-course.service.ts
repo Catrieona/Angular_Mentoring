@@ -19,18 +19,20 @@ public countPage = 5;
 
   public getItemList() {
     let query = 'http://localhost:3004/courses';
+    // return this.httpClient.post<{token: string}>('http://localhost:3004/auth/login', {login, password} );
+
 
     return this.httpClient.get<PageListData[]>(query, {params: {start: '0', count: '' + this.countPage}})
       // .subscribe(response => this.courses$.next(response));
   }
 
-  public removeItem(id: number) {
+  public removeItem(id) {
    return this.httpClient.delete<PageListData[]>(`http://localhost:3004/courses/${id}`)
   }
 
   public onLoadMoreCourses() {
     this.countPage += 5;
-    this.getItemList();
+    return this.getItemList();
   }
 
   public getCourseItem(id: number) {
