@@ -51,7 +51,7 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
   
   ngOnInit() {
     // this.getDataCourse();
-    this.store.dispatch({ type: '[Course Page] Load Courses' });
+      this.store.dispatch({ type: '[Course Page] Load Courses' });
   }
 
   // public getDataCourse(): void {
