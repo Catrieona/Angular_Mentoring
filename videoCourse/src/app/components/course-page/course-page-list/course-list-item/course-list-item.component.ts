@@ -16,6 +16,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import {selectCourses } from "../../../../store/reducers/courses.reducer";
 
 @Component({
   selector: 'app-course-list-item',
@@ -39,14 +40,14 @@ export class CourseListItemComponent implements OnInit {
   @Input() courseState: string;
   @Output() onDeleteCourseItem = new EventEmitter<number>();
 
-  // public courseData;
-  // private id: number;
-  // public dataCourse;
+  public courseData;
+  private id: number;
+  public dataCourse;
 
-  dataCourse$: Observable<PageListData[]> = this.store.select (state => state.courses);
+  dataCourse$: Observable<PageListData[]> = this.store.select (selectCourses);
 
 constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient,
-  private store: Store<{ courses: PageListData[]}>
+  private store: Store<any>
           ) {}
   
   ngOnInit() {

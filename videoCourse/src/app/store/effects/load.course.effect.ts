@@ -8,25 +8,25 @@ import { Action } from '@ngrx/store';
 import {  PageListData } from '../../core/models/page-list-data';
 
 
-Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoadCourses {
- 
   loadCourses$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[Course Page] Load Courses'),
-      mergeMap(() => 
-      this.dataCourseService.getItemList()
+      mergeMap(() => this.dataCourseService.getItemList()
       .pipe(
-        // map(courses => loadCoursesSucces({courses})),
-        map(courses => ({ type: '[Course Page] Load Courses Succes', payload: courses })),
+        map(courses => loadCoursesSucces({courses} )),
+        // map(courses => ({ type: '[Course Page] Load Courses Succes', payload: courses })),
         // tap(() => {
-        //   this.router.navigate(['/courses']);
         // })
         catchError(() => EMPTY)
       )
       )
     )
   );
+
   constructor(
     private actions$: Actions,
     private dataCourseService: DataCourseService

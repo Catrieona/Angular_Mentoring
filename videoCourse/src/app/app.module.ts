@@ -54,6 +54,7 @@ import { LoadCourses  } from './store/effects/load.course.effect';
     LoginModule,
     AppRoutingModule,
     FormsModule,
+
     EffectsModule.forRoot([AuthEffects, LoadCourses]),
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -64,7 +65,7 @@ import { LoadCourses  } from './store/effects/load.course.effect';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  providers: [],
+  providers: [LoadCourses],
   exports: [CourseListItemComponent],
   bootstrap: [AppComponent]
 })
