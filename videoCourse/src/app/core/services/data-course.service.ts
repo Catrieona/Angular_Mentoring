@@ -27,7 +27,7 @@ public countPage = 5;
   }
 
   public removeItem(id) {
-   return this.httpClient.delete<PageListData[]>(`http://localhost:3004/courses/${id}`)
+   return this.httpClient.delete(`http://localhost:3004/courses/${id}`)
   }
 
   public onLoadMoreCourses() {

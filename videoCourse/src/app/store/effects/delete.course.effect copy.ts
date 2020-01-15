@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import { DataCourseService } from '../../core/services/data-course.service';
-import { loadCoursesSucces, loadMoreCourses  } from '../actions/loadCourse.action';
+import { loadCoursesSucces, loadMoreCourses,  deleteCourseSucces  } from '../actions/loadCourse.action';
 import { Router } from '@angular/router';
 
 
@@ -16,12 +16,10 @@ export class DeleteCourse {
       ofType('[Course Page] Delete Course'),
       mergeMap((id) => this.dataCourseService.removeItem(id)
       .pipe(
-        map(courses => loadCoursesSucces({courses} )),
+        map(courses => deleteCourseSucces({id} )),
         catchError(() => EMPTY)
       )
       )
-     
-
     )
   );
 

@@ -18,18 +18,18 @@ export class LoadCourses {
       .pipe(
         map(courses => loadCoursesSucces({courses} )),
         catchError(() => EMPTY)
+    ))));
+  loadMoreCourses$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[Course Page] Load More Courses'),
+      mergeMap(() => this.dataCourseService.onLoadMoreCourses()
+      .pipe(
+        map(courses => loadCoursesSucces({courses} )),
+        catchError(() => EMPTY)
       )
-      )
-      // ofType('[Course Page] Load More Courses'),
-      // mergeMap(() => this.dataCourseService.onLoadMoreCourses()
-      // .pipe(
-      //   map(courses => loadCoursesSucces({courses} )),
-      //   catchError(() => EMPTY)
-      // )
-      // )
-
     )
-  );
+  )
+);
 
   constructor(
     private actions$: Actions,

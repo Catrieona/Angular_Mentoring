@@ -64,10 +64,10 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
   //   });
   // }
 
-  public deleteCourseItem(id) {
+  public deleteCourseItem(id: number) {
     // this.onDeleteCourseItem.emit(id);
     // this.store.dispatch({ type: '[Course Page] Load More Courses' });
-    this.store.dispatch(deleteCourse(id));
+    this.store.dispatch(deleteCourse({id}));
 
     // this.getDataCourse();
   }

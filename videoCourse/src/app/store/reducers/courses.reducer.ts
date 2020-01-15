@@ -1,6 +1,6 @@
 import { createReducer, on, createFeatureSelector, createSelector } from '@ngrx/store';
 import { PageListData } from '../../core/models/page-list-data';
-import * as loadCourses from '../actions/loadCourse.action'
+import * as loadCourses from '../actions/loadCourse.action';
 
 
 const featureKey = 'courses';
@@ -18,23 +18,23 @@ const _loadStateReducer = createReducer(initialState,
     return {
       ...state,
       courses,
-    }}),
+    };}),
   on(loadCourses.loadMoreCourses, (state, {courses}) => {
     return {
       ...state,
       courses,
-    };  
+    };
   }),
-  on(loadCourses.deleteCourse, (state, {id}) => {
+  on(loadCourses.deleteCourseSucces, (state, {id:number}) => {
+    const courses = state.courses;
     return {
       ...state,
-      id,
+     courses: courses.concat(courses)
     }}),
  );
- 
 
 export function loadStateReducer(state, action) {
-  console.log('load', state, action);
+  console.log('del', state, action);
 
   return _loadStateReducer(state, action);
 }
