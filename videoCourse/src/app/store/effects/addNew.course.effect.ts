@@ -5,18 +5,19 @@ import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import { DataCourseService } from '../../core/services/data-course.service';
 import { deleteCourseSucces  } from '../actions/loadCourse.action';
 import { Router } from '@angular/router';
+import { addNewCourseSucces } from "../actions/addCourse.actions";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeleteCourse {
-  deleteCourses$ = createEffect(() =>
+  addNewCourses$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[Course] Add New Course'),
-      mergeMap((id) => this.dataCourseService.removeItem(id)
+      mergeMap(({newCourseItem}) => this.dataCourseService.saveNewItem(newCourseItem)
       .pipe(
-        map(() => deleteCourseSucces(id)),
+        map((courses) => addNewCourseSucces({courses})),
         catchError(() => EMPTY)
       )
       )

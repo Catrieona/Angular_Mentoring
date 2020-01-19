@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import { DataCourseService } from '../../core/services/data-course.service';
-import { loadCoursesSucces, loadMoreCourses  } from '../actions/loadCourse.action';
+import { loadCoursesSucces, loadMoreCoursesSucces  } from '../actions/loadCourse.action';
 import { Router } from '@angular/router';
 
 
@@ -24,7 +24,7 @@ export class LoadCourses {
       ofType('[Course Page] Load More Courses'),
       mergeMap(() => this.dataCourseService.onLoadMoreCourses()
       .pipe(
-        map(courses => loadCoursesSucces({courses} )),
+        map(courses => loadMoreCoursesSucces( {courses} )),
         catchError(() => EMPTY)
       )
     )
