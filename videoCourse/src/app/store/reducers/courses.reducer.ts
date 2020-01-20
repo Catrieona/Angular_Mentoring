@@ -35,8 +35,8 @@ const _loadStateReducer = createReducer(initialState,
       ...state,
       courses
     }}),
-    on (loadCourses.editCourseSucces, (state, model) => {
-      const newCourses  = state.courses.map((course) =>  course.id === course.model.id ?  course.model : course);
+    on (loadCourses.editCourseSucces, (state, {model}) => {
+      const newCourses  = state.courses.map((course) => course.id === model.id ? model : course);
       return {
         ...state,
         courses: newCourses
