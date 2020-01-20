@@ -25,11 +25,11 @@ const _loadStateReducer = createReducer(initialState,
       courses,
     };
   }),
-  on(loadCourses.deleteCourseSucces, (state, {id:number}) => {
+  on(loadCourses.deleteCourseSucces, (state, {id}) => {
     const courses = state.courses;
     return {
       ...state,
-     courses: courses.concat(courses)
+     courses: courses.filter({id})
     }}),
  );
 

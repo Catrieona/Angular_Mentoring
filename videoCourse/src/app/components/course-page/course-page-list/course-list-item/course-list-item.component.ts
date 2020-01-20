@@ -17,7 +17,7 @@ import {
   // ...
 } from '@angular/animations';
 import {selectCourses } from "../../../../store/reducers/courses.reducer";
-import { deleteCourse } from "../../../../store/actions/loadCourse.action"
+
 @Component({
   selector: 'app-course-list-item',
   templateUrl: './course-list-item.component.html',
@@ -65,9 +65,9 @@ constructor(private dataCourseService: DataCourseService, private httpClient: Ht
   // }
 
   public deleteCourseItem(id: number) {
-    // this.onDeleteCourseItem.emit(id);
+    this.onDeleteCourseItem.emit(id);
     // this.store.dispatch({ type: '[Course Page] Load More Courses' });
-    this.store.dispatch(deleteCourse({id}));
+   
 
     // this.getDataCourse();
   }

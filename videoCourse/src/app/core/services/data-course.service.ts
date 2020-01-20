@@ -26,7 +26,7 @@ public countPage = 5;
       // .subscribe(response => this.courses$.next(response));
   }
 
-  public removeItem(id) {
+  public removeItem( {id} ) {
    return this.httpClient.delete(`http://localhost:3004/courses/${id}`)
   }
 
