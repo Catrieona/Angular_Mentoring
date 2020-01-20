@@ -2,7 +2,6 @@ import { createReducer, on, createFeatureSelector, createSelector } from '@ngrx/
 import { PageListData } from '../../core/models/page-list-data';
 import * as loadCourses from '../actions/loadCourse.action';
 
-
 const featureKey = 'courses';
 
 export interface CoursesState {
@@ -17,25 +16,35 @@ const _loadStateReducer = createReducer(initialState,
   on(loadCourses.loadCoursesSucces, (state, {courses}) => {
     return {
       ...state,
-      courses,
+      courses
     };}),
-  on(loadCourses.loadMoreCourses, (state, {courses}) => {
+  on(loadCourses.loadMoreCoursesSucces, (state, {courses}) => {
     return {
       ...state,
-      courses,
+      courses
     };
   }),
   on(loadCourses.deleteCourseSucces, (state, {id}) => {
-    const courses = state.courses;
+    const courses = state.courses.filter( val => val.id != id);
     return {
       ...state,
-     courses: courses.filter({id})
+      courses
     }}),
- );
+  on (loadCourses.addNewCourseSucces, (state, {courses}) => {
+    return {
+      ...state,
+      courses
+    }}),
+    on (loadCourses.editCourseSucces, (state, model) => {
+      const newCourses  = state.courses.map((course) =>  course.id === course.model.id ?  course.model : course);
+      return {
+        ...state,
+        courses: newCourses
+        }}),
+);
 
 export function loadStateReducer(state, action) {
-  console.log('del', state, action);
-
+  console.log(state, action)
   return _loadStateReducer(state, action);
 }
 

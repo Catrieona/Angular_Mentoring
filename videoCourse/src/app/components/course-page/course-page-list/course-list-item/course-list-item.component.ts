@@ -16,7 +16,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-import {selectCourses } from "../../../../store/reducers/courses.reducer";
+import {selectCourses } from '../../../../store/reducers/courses.reducer';
 
 @Component({
   selector: 'app-course-list-item',
@@ -47,33 +47,19 @@ export class CourseListItemComponent implements OnInit {
   dataCourse$: Observable<PageListData[]> = this.store.select (selectCourses);
 
 constructor(private dataCourseService: DataCourseService, private httpClient: HttpClient,
-  private store: Store<any>
+            private store: Store<any>
           ) {}
-  
+          
   ngOnInit() {
-    // this.getDataCourse();
       this.store.dispatch({ type: '[Course Page] Load Courses' });
   }
 
-  // public getDataCourse(): void {
-  // this.dataCourseService.getItemList()
-  // this.dataCourseService.courses$
-  //   .subscribe ((dataCourse: PageListData[]) => {
-  //     this.dataCourse = dataCourse;
-  //     this.cdRef.markForCheck();
-  //   });
-  // }
 
   public deleteCourseItem(id: number) {
     this.onDeleteCourseItem.emit(id);
-    // this.store.dispatch({ type: '[Course Page] Load More Courses' });
-   
-
-    // this.getDataCourse();
   }
 
   public loadMoreCourses() {
-  // this.dataCourseService.onLoadMoreCourses();
   this.store.dispatch({ type: '[Course Page] Load More Courses' });
   }
 

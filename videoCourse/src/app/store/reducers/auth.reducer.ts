@@ -19,6 +19,6 @@ const _authReducer = createReducer(initialState,
  );
 
 export function authReducer(state, action) {
-  console.log('auth', state, action);
+  
   return _authReducer(state, action);
 }

@@ -1,7 +1,9 @@
-import { Component, OnInit,  ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit,  ChangeDetectorRef, ɵConsole } from '@angular/core';
 import { PageListData } from 'src/app/core/models/page-list-data';
 import { ActivatedRoute} from '@angular/router';
 import { DataCourseService } from '../../core/services/data-course.service';
+import { Store} from '@ngrx/store';
+import { editCourse } from "../../store/actions/loadCourse.action";
 
 
 @Component({
@@ -17,7 +19,8 @@ export class EditCourseComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataCourseService: DataCourseService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    private store: Store<any>
     ) {
   }
 
@@ -35,7 +38,9 @@ export class EditCourseComponent implements OnInit {
   }
 
   editCourseDate() {
-    this.dataCourseService.editCourseItem(this.id, this.dataCourse)
-    .subscribe(() => this.dataCourseService.getItemList());
+    // this.dataCourseService.editCourseItem(this.id, this.dataCourse)
+    // .subscribe(() => this.dataCourseService.getItemList());
+    this.store.dispatch(editCourse({id: this.id, dataCourse: this.dataCourse}));
+
   }
 }
