@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { tap } from 'rxjs/operators/tap';
-import 'rxjs/add/operator/do';
+import { Observable } from 'rxjs';
 import { LoaderService } from '../services/loader.service';
 import { finalize } from 'rxjs/operators';
 

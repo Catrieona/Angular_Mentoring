@@ -1,8 +1,8 @@
 <div [@fadeIn]="dataCourse?.length">
-    <section *ngFor="let item of dataCourse; trackBy: trackById" class="course-items" >
-        <div [class.topRatedcourse]="item.topRated" appItemBorderStyle [creationDate]=item.date class="section_wrapper">
+    <section *ngFor="let item of dataCourse$ | async; trackBy: trackById" class="course-items" >
+        <div [class.topRatedcourse]="item.istopRated" appItemBorderStyle [creationDate]=item.date class="section_wrapper">
             <div class="course-item-inform"> 
-                <h2 class="course-item-inform-header" >Video Course {{item.name | uppercase }} <i *ngIf="item.isTopRated" class="fas fa-star"></i> </h2>
+                <h2 class="course-item-inform-header" >Video Course {{item.name | uppercase }} <i *ngIf="item.istopRated" class="fas fa-star"></i> </h2>
                 <p class="course-item-inform-text"> {{item.description}}</p>
                 <div class="course-item-timeline"> 
                     <div class="course-item-timeline-duration">
