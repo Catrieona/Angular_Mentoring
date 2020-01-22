@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LogInPageComponent } from '../../shared/course-log-in/log-in-page.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -10,7 +11,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }

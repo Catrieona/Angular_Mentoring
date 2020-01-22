@@ -1,23 +1,23 @@
 
-<section class="userLoginForm">
+<form action="" class="userLoginForm" #addLoginForm="ngForm">
     <div class='userLoginFormWrapper'>
         <div class="userLogin_header">
             <h2>Login </h2> <p>Wrong e-mail password</p>
         </div>
         <div class="userLogin_email">
             <label for="user_mail">E-mail </label>
-            <span>*required</span>
+            <span *ngIf="loginEmail.errors?.required">*required</span>
         </div>
-        <input #usermail placeholder="Enter e-mail" id="user_mail" type="email">
+        <input  ngModel name="loginEmail" #loginEmail='ngModel' required #usermail placeholder="Enter e-mail" id="user_mail" type="email">
         <div class="userLogin_password">
             <label for="user_password">Password </label>
-            <span>*required</span>
+            <span *ngIf="loginpassword.errors?.minlength">*required</span>
             </div>
-        <input #userpass placeholder="Enter password" id="user_password" type="text">
+        <input minlength="4" ngModel #loginpassword='ngModel'name="loginpassword" required #userpass placeholder="Enter password" id="user_password" type="password">
 
         <div class="userLogin_footer" >
             <a href="#">Forgot password? </a>
-            <button (click)="checkUserInfo(usermail.value, userpass.value)" class="userLogin_button"> Login </button>
+            <button [disabled]="addLoginForm.invalid" type="submit" (click)="checkUserInfo(usermail.value, userpass.value)" class="userLogin_button"> Login </button>
         </div>
     </div>
-</section>
+</form>
