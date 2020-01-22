@@ -1,4 +1,4 @@
-<section class="addCourseForm">
+<form action="" class="addCourseForm" #addCourseForm="ngForm">
     <div class='addCourseWrapper'>
         <div class="addCourse_header">
             <h2>New Course </h2> 
@@ -6,44 +6,39 @@
 
         <div class="addCourse_title addCourse_input">
             <label for="addCourse_title">Title: </label>
-            <span class='addCourse_required'>*required</span>
+            <span *ngIf="courseTitle.errors?.required" class='addCourse_required'>*required </span>
         </div>
-        <input placeholder="Text input" id="addCourse_title" type="text"  [(ngModel)]=newCourseItem.name>
+        <input id="addCourse_title" name="courseTitle" required  minlength="4"  maxlength="50" placeholder="Text input"  type="text" #courseTitle="ngModel" [(ngModel)]=newCourseItem.name/>
 
         <div class="addCourse_description addCourse_input">
             <label for="addCourse_descript">Description: </label>
-            <span class='addCourse_required'>*required</span>
+            <span *ngIf="courseDescription.errors?.required" class='addCourse_required'>*required</span>
         </div>
-        <textarea  placeholder="Add description" id="addCourse_descript" [(ngModel)]=newCourseItem.description> </textarea>
+        <textarea required name="courseDescription" maxlength="500" placeholder="Add description" id="addCourse_descript" #courseDescription="ngModel"  [(ngModel)]= newCourseItem.description> </textarea>
 
         <div class="addCourse_duration addCourse_input">
             <label for="addCourse_duration">Duration: </label>
-            <span class='addCourse_required'>*required</span>
+            <span *ngIf="courseDuration.errors?.required" class='addCourse_required'>*required</span>
         </div>
 
-        <div class="addCourse_duration_wrapper">
-            <input placeholder="minutes" id="addCourse_duration" class="addCourse_duration_input" type="text" [(ngModel)]=newCourseItem.length>
-            <div class="addCourse_duration_formated">{{newCourseItem.length | courseDuration}}</div>
-        </div>
+        <app-duration-control  #courseDuration="ngModel"  required [(ngModel)]=newCourseItem.length name="courseDuration"> </app-duration-control>
 
         <div class="addCourse_date addCourse_input">
-                <label for="addCourse_date">Date: </label>
-                <span class='addCourse_required'>*required</span>
+            <label for="addCourse_date">Date: </label>
+            <span *ngIf="courseDate.errors?.required" class='addCourse_required'>*required</span>
         </div>
-        <input placeholder="mm-dd-yyyy" id="addCourse_date" type="text" [(ngModel)]=newCourseItem.date>
+
+        <app-date-control name="courseDate" required [(ngModel)]=newCourseItem.date name="courseDate" #courseDate="ngModel"></app-date-control>
 
         <div class="addCourse_authors addCourse_input">
             <label for="addCourse_authors">Authors: </label>
-            <span class='addCourse_required'>*required</span>
         </div>
-        <div placeholder="start typing" id="addCourse_authors" class="addCourse_authors_wrapper">
-
-        </div>
+        <input  placeholder="start typing" id="addCourse_authors" class="addCourse_authors_wrapper" />
 
         <div class="addCourse_Buttons_Wrapper">
-            <button routerLink="" class="saveu_course_button" (click)="addNewCourseItem()">Save</button>
+            <button [disabled]="addCourseForm.invalid" routerLink="" type="submit" class="saveu_course_button" (click)="addNewCourseItem()" > SAVE </button>
             <button routerLink="" class="cansel_course_button">Cansel</button>
         </div>
     </div>
-</section>
+</form>
     

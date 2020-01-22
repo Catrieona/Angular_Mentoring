@@ -1,0 +1,4 @@
+<div class="addCourse_duration_wrapper">
+    <input required  name="courseDuration" placeholder="minutes" id="addCourse_duration" class="addCourse_duration_input" type="text" [(ngModel)]="value">
+    <div  class="addCourse_duration_formated">{{ value | courseDuration }}</div>
+</div>

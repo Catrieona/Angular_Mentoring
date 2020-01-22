@@ -13,12 +13,15 @@ export class AddNewCourseComponent {
   constructor(private dataCourseService: DataCourseService,
     private store: Store<any>
     ) {}
-  public courseId;
+  // public courseId;
+  public FormIsValid;
 
   public newCourseItem: Partial<PageListData> = {};
 
-  public addNewCourseItem() {
+  public addNewCourseItem(v) {
     this.store.dispatch(addNewCourse({newCourseItem: this.newCourseItem}));
   }
+
+
 
 }
