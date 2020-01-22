@@ -20,6 +20,15 @@ import { EditCourseComponent } from './shared/course-edit/edit-course.component'
 import { NotFoundComponent } from './shared/not-found-component/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './store/effects/auth.effect';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './store/reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { LoadCourses } from './store/effects/load.course.effect';
+
+
 
 @NgModule({
   declarations: [
@@ -42,12 +51,21 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-
     LoginModule,
     AppRoutingModule,
     FormsModule,
+
+    EffectsModule.forRoot([AuthEffects, LoadCourses]),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  providers: [],
+  providers: [LoadCourses],
   exports: [CourseListItemComponent],
   bootstrap: [AppComponent]
 })

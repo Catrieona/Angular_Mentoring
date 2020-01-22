@@ -13,7 +13,7 @@ export class CoursePageListComponent  {
 
   public itemDelId: number;
 
-  public onDeleteCourseItem(id: number) {
+  public onDeleteCourseItem(id) {
     this.dataCourseService.showConfirmMessage = true;
     this.itemDelId = id;
   }
